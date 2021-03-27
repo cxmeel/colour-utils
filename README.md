@@ -1,10 +1,18 @@
+<!-- Link References -->
+[CI Status]: https://github.com/ClockworkSquirrel/colour-utils/actions
+[Latest Release]: https://github.com/ClockworkSquirrel/colour-utils/releases/latest
+[Library URL]: https://www.roblox.com/library/6573728888
+
 # ColourUtils
+[![CI](https://github.com/ClockworkSquirrel/colour-utils/actions/workflows/ci.yml/badge.svg)][CI Status]
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/clockworksquirrel/colour-utils?label=latest+release)][Latest Release]
+
 ColourUtils provides handy methods for manipulating colours for your UI in Roblox.
 
 ## Installation
-* [Grab a copy from the Library (Toolbox)](https://www.roblox.com/library/6573728888)
+* [Grab a copy from the Library (Toolbox)][Library URL]
 * [Sync in with Rojo](https://rojo.space)
-* [Download the model from GitHub releases](https://github.com/ClockworkSquirrel/colour-utils/releases/latest)
+* [Download the model from GitHub releases][Latest Release]
 
 ## Usage
 Here's a quick example of how ColourUtils can be used:
