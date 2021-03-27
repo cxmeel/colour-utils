@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "TestEZ",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}/test/test.ps1",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

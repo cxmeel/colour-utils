@@ -1,0 +1,11 @@
+*.rbxlx.lock
+*.rbxl.lock
+
+*.rbxlx
+*.rbxl
+
+*.rbxmx
+*.rbxm
+
+roblox.toml
+/dist

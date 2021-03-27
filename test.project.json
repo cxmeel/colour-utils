@@ -1,0 +1,24 @@
+{
+  "name": "colour-utils-test",
+  "tree": {
+    "$className": "DataModel",
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "ColourUtils": {
+        "$path": "src"
+      }
+    },
+    "TestService": {
+      "$className": "TestService",
+      "$properties": {
+        "ExecuteWithStudioRun": true
+      },
+      "TestEZ": {
+        "$path": "packages/TestEZ/src"
+      },
+      "TestRunner": {
+        "$path": "test/test-runner.server.lua"
+      }
+    }
+  }
+}
