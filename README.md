@@ -4,7 +4,7 @@ ColourUtils provides handy methods for manipulating colours for your UI in Roblo
 ## Installation
 * [Grab a copy from the Library (Toolbox)](https://www.roblox.com/library/6573728888)
 * [Sync in with Rojo](https://rojo.space)
-* [Download the model from GitHub releases](/releases/latest)
+* [Download the model from GitHub releases](https://github.com/ClockworkSquirrel/colour-utils/releases/latest)
 
 ## Usage
 Here's a quick example of how ColourUtils can be used:
