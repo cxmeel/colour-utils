@@ -50,7 +50,7 @@ TextLabel.TextColor3 = GetAccessibleTextColour(TextLabel.BackgroundColor3)
 ## API Overview
 * `ColourUtils.Darken(colour: Color3, coefficient: number): Color3`
 * `ColourUtils.Lighten(colour: Color3, coefficient: number): Color3`
-* `ColourUtils.Emphasise(colour: Color3, coefficient: number, threshold: number): Color3`
+* `ColourUtils.Emphasise(colour: Color3, coefficient: number, threshold: number?): Color3`
 * `ColourUtils.GetContrastRatio(foreground: Color3, background: Color3): number`
 * `ColourUtils.GetLuminance(colour: Color3): number`
 * `ColourUtils.Hex.fromHex(hex: string): Color3`
