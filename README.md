@@ -50,7 +50,7 @@ TextLabel.TextColor3 = GetAccessibleTextColour(TextLabel.BackgroundColor3)
 ## API Overview
 * `ColourUtils.Darken(colour: Color3, coefficient: number): Color3`
 * `ColourUtils.Lighten(colour: Color3, coefficient: number): Color3`
-* `ColourUtils.Emphasise(colour: Color3, coefficient: number): Color3`
+* `ColourUtils.Emphasise(colour: Color3, coefficient: number, threshold: number): Color3`
 * `ColourUtils.GetContrastRatio(foreground: Color3, background: Color3): number`
 * `ColourUtils.GetLuminance(colour: Color3): number`
 * `ColourUtils.Hex.fromHex(hex: string): Color3`
@@ -80,6 +80,8 @@ Automatically darken a light colour or lighten a dark colour, depending on it lu
 #### Arguments
 colour (`Color3`) - The `Color3` to affect\
 coefficient (`number`) - A multiplier in the range of 0-1
+threshold (`number`) - The threshold for luminance (default: `0.5`)
+
 #### Returns
 colour `Color3` - The lightened or darkened `Color3`
 
