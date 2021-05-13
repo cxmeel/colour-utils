@@ -21,11 +21,10 @@ jobs:
           submodules: recursive
 
       - name: Install Roblox Studio
-        uses: OrbitalOwen/roblox-win-installer-action@1.1
+        uses: OrbitalOwen/roblox-win-installer-action@1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           cookie: ${{ secrets.RBX_TOKEN }}
-          version: 0.4
 
       - name: Setup Foreman
         uses: Roblox/setup-foreman@v1
