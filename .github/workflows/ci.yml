@@ -24,6 +24,7 @@ jobs:
         uses: OrbitalOwen/roblox-win-installer-action@1.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          cookie: ${{ secrets.RBX_TOKEN }}
 
       - name: Setup Foreman
         uses: Roblox/setup-foreman@v1
