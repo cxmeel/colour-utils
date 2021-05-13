@@ -25,7 +25,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           cookie: ${{ secrets.RBX_TOKEN }}
-          version: 1.0
+          version: 0.4
 
       - name: Setup Foreman
         uses: Roblox/setup-foreman@v1
