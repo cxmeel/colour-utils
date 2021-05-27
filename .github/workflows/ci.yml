@@ -11,25 +11,31 @@ on:
 jobs:
   unit-testing:
     runs-on: windows-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
 
     steps:
-      - name: Checkout
+      - name: Checkout Reporsitory
         uses: actions/checkout@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           submodules: recursive
 
       - name: Install Roblox Studio
-        uses: OrbitalOwen/roblox-win-installer-action@1.0
+        uses: osyrisrblx/roblox-win-installer-action@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           cookie: ${{ secrets.RBX_TOKEN }}
 
-      - name: Setup Foreman
+      - name: Setup Toolchain
         uses: Roblox/setup-foreman@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Setup Kayak
+        run: |
+          npm i -g kayak
+          kayak pull
+          Get-ChildItem packages $Path | Where{$_.Name -Match "^.__\w+"} | Remove-Item -Force -Recurse
 
       - name: Run Tests
         uses: Amadevus/pwsh-script@v2.0.1
