@@ -30,13 +30,7 @@ jobs:
         uses: Roblox/setup-foreman@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: Setup Kayak
-        run: |
-          npm i -g kayak
-          kayak pull
-          Get-ChildItem packages $Path | Where{$_.Name -Match "^.__\w+"} | Remove-Item -Force -Recurse
-
+      
       - name: Run Tests
         uses: Amadevus/pwsh-script@v2.0.1
         with:
