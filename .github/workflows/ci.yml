@@ -63,6 +63,7 @@ jobs:
 
       - name: Build Project
         run: |
+          mkdir dist
           rojo build default.project.json -o dist/${{ env.PROJECT_NAME }}.rbxmx
           rojo build default.project.json -o dist/${{ env.PROJECT_NAME }}.rbxm
 
