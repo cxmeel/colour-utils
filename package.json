@@ -1,0 +1,32 @@
+{
+  "name": "@rbxts/colour-utils",
+  "version": "1.0.2",
+  "description": "Colour manipulation utility for Roblox",
+  "homepage": "https://github.com/csqrl/colour-utils",
+  "main": "src/init.lua",
+  "license": "MIT",
+  "scripts": {
+    "build": "rbxtsc",
+    "watch": "rbxtsc -w",
+    "prepublishOnly": "yarn run build"
+  },
+  "types": "typings/index.d.ts",
+  "files": [
+    "src",
+    "typings"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": {
+    "name": "csqrl",
+    "url": "https://github.com/csqrl"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/csqrl/colour-utils"
+  },
+  "devDependencies": {
+    "@rbxts/types": "^1.0.514"
+  }
+}

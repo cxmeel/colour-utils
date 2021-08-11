@@ -1,0 +1,6 @@
+[package]
+name = "csqrl/colour-utils"
+author = "csqrl"
+license = "MIT"
+content_root = "src"
+version = "1.0.2"

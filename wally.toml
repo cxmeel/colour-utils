@@ -1,0 +1,8 @@
+[package]
+name = "csqrl/colour-utils"
+description = "Colour manipulation utility for Roblox"
+version = "1.0.2"
+license = "MIT"
+authors = ["csqrl (https://github.com/csqrl)"]
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"

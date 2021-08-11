@@ -9,3 +9,8 @@
 
 roblox.toml
 /dist
+
+/node_modules
+*.tsbuildinfo
+/include
+/out
