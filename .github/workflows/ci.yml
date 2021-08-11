@@ -46,9 +46,9 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Get Project Name
+      - name: Set Project Name
         run: |
-          PROJECT_NAME=`grep -Po '(?<=^name = ")([^"]+)' wally.toml`
+          PROJECT_NAME="colour-utils"
           echo "PROJECT_NAME=$PROJECT_NAME" >> $GITHUB_ENV
 
       - name: Get Current Version
@@ -78,6 +78,3 @@ jobs:
           draft: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload to Roblox
-        run: rojo upload default.project.json --asset_id 6573728888 --cookie ${{ secrets.ROBLOSECURITY }}
