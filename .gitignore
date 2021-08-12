@@ -8,6 +8,7 @@
 *.rbxm
 
 roblox.toml
+testez.toml
 /dist
 
 /node_modules

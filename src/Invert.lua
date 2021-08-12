@@ -1,13 +1,15 @@
-local fmt = string.format
-
-local ERR_INVALID_TYPE = "invert(...): The `%s` argument must be a %s, but you passed %q (%s)"
+local ClampColour = require(script.Parent._Util.ClampColour)
+local Assert = require(script.Parent._Util.Assert)
+local assertTypeOf = Assert.prepTypeOf("Invert")
 
 return function(colour: Color3): Color3
-  assert(typeof(colour) == "Color3", fmt(ERR_INVALID_TYPE, "colour", "Color3", tostring(colour), typeof(colour)))
+  assertTypeOf("colour", "Color3", colour)
 
-  return Color3.new(
+  local inverse = Color3.new(
     1 - colour.R,
     1 - colour.G,
     1 - colour.B
   )
+
+  return ClampColour(inverse)
 end

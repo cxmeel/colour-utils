@@ -1,13 +1,14 @@
-local fmt = string.format
+local Assert = require(script.Parent._Util.Assert)
+local assertTypeOf = Assert.prepTypeOf("GetLuminance")
 
-local ERR_INVALID_TYPE = "getLuminance(...): The `%s` argument must be a %s, but you passed %q (%s)"
+local fmt = string.format
 
 local function transformValue(value: number): number
     return value <= .03928 and value / 12.92 or ((value + .055) / 1.055) ^ 2.4
 end
 
 return function(colour: Color3): number
-    assert(typeof(colour) == "Color3", fmt(ERR_INVALID_TYPE, "colour", "Color3", tostring(colour), typeof(colour)))
+    assertTypeOf("colour", "Color3", colour)
 
     local red = transformValue(colour.R)
     local green = transformValue(colour.G)
