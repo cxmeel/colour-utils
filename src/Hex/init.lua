@@ -1,3 +1,5 @@
+local Assert = require(script.Parent._Util.Assert)
+
 local sub = string.sub
 local gsub = string.gsub
 local fmt = string.format
@@ -7,10 +9,8 @@ local split = string.split
 local HEX_EXCLUDE_PATTERN = "[^A-Fa-f0-9]"
 local HEX_FORMAT_PATTERN = "%.2x%.2x%.2x"
 
-local ERR_NOT_TYPE = "%s(...): The argument must be a %s, but you passed %q (%s)"
-
 local function FromHex(hex: string): Color3
-    assert(type(hex) == "string", fmt(ERR_NOT_TYPE, "fromHex", "string", tostring(hex), typeof(hex)))
+    Assert.typeOf("FromHex", "hex", "string", hex)
 
     hex = gsub(hex, HEX_EXCLUDE_PATTERN, "")
 
@@ -35,7 +35,7 @@ local function FromHex(hex: string): Color3
 end
 
 local function ToHex(colour: Color3): string
-    assert(typeof(colour) == "Color3", fmt(ERR_NOT_TYPE, "toHex", "Color3", tostring(colour), typeof(colour)))
+    Assert.typeOf("ToHex", "colour", "Color3", colour)
 
     local red = colour.R * 255
     local green = colour.G * 255

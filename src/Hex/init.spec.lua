@@ -1,5 +1,5 @@
 return function()
-    local Hex = require(script.Parent.Hex)
+    local Hex = require(script.Parent)
 
     describe("toHex(...)", function()
         it("throws if argument is not a Color3", function()

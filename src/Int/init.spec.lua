@@ -1,5 +1,5 @@
 return function()
-    local Int = require(script.Parent.Int)
+    local Int = require(script.Parent)
 
     describe("toInt(...)", function()
         it("throws if argument is not a Color3", function()

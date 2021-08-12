@@ -1,14 +1,12 @@
-local floor = math.floor
-local fmt = string.format
+local Assert = require(script.Parent._Util.Assert)
 
+local floor = math.floor
 local rshift = bit32.rshift
 local lshift = bit32.lshift
 local band = bit32.band
 
-local ERR_NOT_TYPE = "%s(...): The argument must be a %s, but you passed %q (%s)"
-
 local function FromInt(int: number): Color3
-    assert(type(int) == "number", fmt(ERR_NOT_TYPE, "fromInt", "number", tostring(int), typeof(int)))
+    Assert.typeOf("FromInt", "int", "number", int)
     int = floor(int)
 
     local red = band(rshift(int, 16), 255)
@@ -19,7 +17,7 @@ local function FromInt(int: number): Color3
 end
 
 local function ToInt(colour: Color3): number
-    assert(typeof(colour) == "Color3", fmt(ERR_NOT_TYPE, "toInt", "Color3", tostring(colour), typeof(colour)))
+    Assert.typeOf("ToInt", "colour", "Color3", colour)
 
     local int = floor(colour.R * 255)
     int = lshift(int, 8) + floor(colour.G * 255)
