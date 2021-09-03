@@ -13,7 +13,8 @@
   "types": "typings/index.d.ts",
   "files": [
     "src",
-    "typings"
+    "typings",
+    "*.project.json"
   ],
   "publishConfig": {
     "access": "public"
