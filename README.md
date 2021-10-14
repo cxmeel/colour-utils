@@ -6,6 +6,7 @@
 [npm package]: https://npmjs.com/package/@rbxts/colour-utils
 [rojo]: https://rojo.space
 [roblox-ts]: https://roblox-ts.com
+[wally]: https://github.com/upliftgames/wally
 
 <!-- Articles -->
 
@@ -15,15 +16,17 @@
 
 <!-- Images -->
 
-[shield ci]: https://github.com/csqrl/colour-utils/actions/workflows/ci.yml/badge.svg
-[shield gh release]: https://img.shields.io/github/v/release/csqrl/colour-utils?label=latest+release
-[shield npm release]: https://img.shields.io/npm/v/@rbxts/colour-utils
+[shield ci]: https://github.com/csqrl/colour-utils/actions/workflows/unit-tests.yml/badge.svg
+[shield gh release]: https://img.shields.io/github/v/release/csqrl/colour-utils?label=latest+release&style=flat
+[shield npm release]: https://img.shields.io/npm/v/@rbxts/colour-utils?style=flat
+[shield wally release]: https://img.shields.io/endpoint?url=https://runkit.io/clockworksquirrel/wally-version-shield/branches/master/csqrl/colour-utils&color=blue&label=wally&style=flat
 
 # ColourUtils
 
 [![CI][shield ci]][ci status]
 [![GitHub release (latest by date)][shield gh release]][latest release]
 [![NPM release (latest)][shield npm release]][npm package]
+[![Wally release (latest)][shield wally release]][latest release]
 
 ColourUtils provides handy methods for manipulating colours for your UI in Roblox.
 
@@ -53,9 +56,31 @@ $ yarn add @rbxts/colour-utils
 $ pnpm i @rbxts/colour-utils
 ```
 
+### [Wally][wally]
+
+Add `colour-utils` to your `wally.toml` and run `wally install`
+
+```toml
+[package]
+name = "user/repo"
+description = "My awesome Roblox project"
+version = "1.0.0"
+license = "MIT"
+authors = ["You (https://github.com/you)"]
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+ColourUtils = "csqrl/colour-utils@^1.0.3"
+```
+
+```sh
+$ wally install
+```
+
 ### Manual Installation
 
-Grab a copy [from the Roblox Library (Toolbox)][library url], or download the latest .rbxm/.rbxmx file from [the releases page][latest release] and drop it into Studio.
+Grab a copy [from the Roblox Library (Toolbox)][library url], or download the latest `.rbxm/.rbxmx` file from [the releases page][latest release] and drop it into Studio.
 
 ## Usage
 
