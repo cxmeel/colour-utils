@@ -1,7 +1,7 @@
 name: Upload GitHub Release
 on:
   workflow_run:
-    workflows: ["unit-tests"]
+    workflows: ["Unit Tests"]
     branches: [default]
     types: [completed]
 
