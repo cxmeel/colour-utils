@@ -2,10 +2,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Test with TestEZ",
+      "name": "PowerShell: Run Tests",
       "type": "PowerShell",
       "request": "launch",
-      "script": "${workspaceFolder}/test/test.ps1",
+      "script": ".vscode/scripts/run-tests",
       "cwd": "${workspaceFolder}"
     }
   ]

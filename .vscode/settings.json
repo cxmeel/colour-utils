@@ -1,3 +1,5 @@
 {
-    "rojo.releaseBranch": "7.x"
+  "git.ignoreSubmodules": true,
+  "git.autoRepositoryDetection": "openEditors",
+  "git.detectSubmodules": false
 }

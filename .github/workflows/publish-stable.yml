@@ -1,0 +1,53 @@
+name: Publish Stable
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  publish-stable:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Setup Node 16.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+
+      - name: Setup Toolchain
+        uses: roblox/setup-foreman@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Report Tool Versions
+        run: |
+          rojo --version
+          wally --version
+          printf "npm %s" `npm --version`
+
+      - name: Publish Release to NPM
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Release to Roblox (Stable)
+        run: rojo upload default.project.json --asset_id $ASSET_ID --cookie "$ROBLOSECURITY"
+        env:
+          ROBLOSECURITY: ${{ secrets.ROBLOSECURITY }}
+          ASSET_ID: 6573728888
+
+      - name: Publish Release to Wally
+        shell: bash
+        env:
+          WALLY_TOKEN: ${{ secrets.WALLY_TOKEN }}
+        run: |
+          rm -rf packages roblox.toml testez.toml .github .foreman-install
+          mkdir -p ~/.wally
+          printf "[tokens]\n\"https://api.wally.run/\" = \"%s\"" "$WALLY_TOKEN" >> ~/.wally/auth.toml
+          wally publish

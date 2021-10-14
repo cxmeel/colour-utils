@@ -5,7 +5,7 @@
     "ServerScriptService": {
       "$className": "ServerScriptService",
       "ColourUtils": {
-        "$path": "src"
+        "$path": "default.project.json"
       }
     },
     "TestService": {
@@ -13,11 +13,20 @@
       "$properties": {
         "ExecuteWithStudioRun": true
       },
-      "TestEZ": {
-        "$path": "packages/TestEZ/src"
+      "Packages": {
+        "$className": "Folder",
+        "TestEZ": {
+          "$path": "packages/TestEZ"
+        }
       },
       "TestRunner": {
-        "$path": "test/test-runner.server.lua"
+        "$path": "test-runner.server.lua"
+      }
+    },
+    "Players": {
+      "$className": "Players",
+      "$properties": {
+        "CharacterAutoLoads": false
       }
     }
   }
