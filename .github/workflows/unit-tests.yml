@@ -17,7 +17,7 @@ jobs:
         with:
           submodules: true
 
-      - name: Instal Roblox Studio
+      - name: Install Roblox Studio
         uses: OrbitalOwen/roblox-win-installer-action@1.1
         with:
           cookie: ${{ secrets.ROBLOSECURITY }}

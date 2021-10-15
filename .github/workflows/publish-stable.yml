@@ -27,9 +27,9 @@ jobs:
 
       - name: Report Tool Versions
         run: |
-          rojo --version
-          wally --version
-          printf "npm %s" `npm --version`
+          printf "npm %s" `npm -v`
+          printf "node %s" `node -v`
+          foreman list
 
       - name: Publish Release to NPM
         uses: JS-DevTools/npm-publish@v1

@@ -8,7 +8,7 @@ on:
 jobs:
   publish-release:
     runs-on: ubuntu-latest
-    if: contains(github.event.head_commit.message, '[release]') && ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: (contains(github.event.head_commit.message, '[release]') && github.event.workflow_run.conclusion == 'success')
     timeout-minutes: 5
 
     steps:
@@ -23,12 +23,12 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Report Tool Versions
-        run: rojo --version
+        run: foreman list
 
       - name: Get Release Details
         run: |
-          printf "PROJECT_VERSION=%s" `grep -Po '(?<=version = ")([^"]+)' wally.toml` >> $GITHUB_ENV
-          printf "PROJECT_COMMIT_ID=%s" `git rev-parse --short ${{ github.sha }}` >> $GITHUB_ENV
+          echo "PROJECT_VERSION=`grep -Po '(?<=version = ")([^"]+)' wally.toml`" >> $GITHUB_ENV
+          echo "PROJECT_COMMIT_ID=`git rev-parse --short ${{ github.sha }}`" >> $GITHUB_ENV
 
       - name: Build Project
         run: |
