@@ -8,9 +8,10 @@ on:
 jobs:
   publish-release:
     runs-on: ubuntu-latest
-    if: (contains(github.event.head_commit.message, '[release]') && github.event.workflow_run.conclusion == 'success')
+    if: |
+      contains(github.event.head_commit.message, '[release]') &&
+      github.event.workflow_run.conclusion == 'success'
     timeout-minutes: 5
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
