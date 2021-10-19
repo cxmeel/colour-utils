@@ -1,3 +1,5 @@
+local BasicallyIdentical = require(script.Parent.Parent._Util.BasicallyIdentical)
+
 return function()
     local Hex = require(script.Parent)
 
@@ -17,20 +19,20 @@ return function()
         end)
 
         it("converts a standard 6-character hex code to Color3", function()
-            expect(Hex.fromHex("#00A2FF")).to.equal(Color3.fromRGB(0, 162, 255))
+            expect(BasicallyIdentical(Color3.fromRGB(0, 162, 255), Hex.fromHex("#00A2FF"))).to.equal(true)
         end)
 
         it("converts a 3-character hex code to Color3", function()
-            expect(Hex.fromHex("#a3d")).to.equal(Color3.fromRGB(170, 51, 221))
+            expect(BasicallyIdentical(Color3.fromRGB(170, 51, 221), Hex.fromHex("#a3d"))).to.equal(true)
         end)
 
         it("converts irregular hex codes to Color3", function()
-            expect(Hex.fromHex("#f")).to.equal(Color3.new(1, 1, 1))
-            expect(Hex.fromHex("#9e")).to.equal(Color3.fromRGB(158, 158, 158))
+            expect(BasicallyIdentical(Color3.new(1, 1, 1), Hex.fromHex("#f"))).to.equal(true)
+            expect(BasicallyIdentical(Color3.fromRGB(158, 158, 158), Hex.fromHex("#9e"))).to.equal(true)
         end)
 
         it("returns \"black\" if argument is an empty string", function()
-            expect(Hex.fromHex("")).to.equal(Color3.new())
+            expect(BasicallyIdentical(Color3.new(), Hex.fromHex(""))).to.equal(true)
         end)
     end)
 end

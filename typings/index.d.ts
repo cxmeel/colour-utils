@@ -1,6 +1,12 @@
 /// <reference types="@rbxts/types" />
-
 declare namespace ColourUtils {
+  // Embedded types
+  type VibrantOptions = {
+    TargetLuminance: number
+    TargetSaturation: number
+    TargetValue: number
+  }
+
   /**
    * Darkens a colour
    * @param {Color3} colour - The Color3 to darken
@@ -36,6 +42,13 @@ declare namespace ColourUtils {
    * @returns {number}
    */
   function GetLuminance(colour: Color3): number
+
+  /**
+   *
+   * @param colour {Color3} colour - The Color3 to get the perceived brightness of
+   * @returns {number}
+   */
+  function GetPerceivedBrightness(colour: Color3): number
 
   /**
    * Calculates the contrast ratio between two colours, using the formula provided by WCAG. The result is a number in the range of 0-21
@@ -146,6 +159,58 @@ declare namespace ColourUtils {
      * @returns A resulting Color3 from applying the blend
      */
     function Screen(background: Color3, foreground: Color3): Color3
+  }
+
+  namespace Palette {
+    /**
+     *
+     * @param base {Color3} - The Color3 to generate palette from
+     * @returns An array of Color3 values
+     */
+    function Analogous(base: Color3): Color3[]
+
+    /**
+     *
+     * @param base {Color3} - The Color3 to generate palette from
+     * @returns An array of Color3 values
+     */
+    function Complementary(base: Color3): Color3[]
+
+    /**
+     *
+     * @param base {Color3} - The Color3 to generate palette from
+     * @returns An array of Color3 values
+     */
+    function Monochromatic(base: Color3): Color3[]
+
+    /**
+     *
+     * @param base {Color3} - The Color3 to generate palette from
+     * @returns An array of Color3 values
+     */
+    function SplitComplementary(base: Color3): Color3[]
+
+    /**
+     *
+     * @param base {Color3} - The Color3 to generate palette from
+     * @returns An array of Color3 values
+     */
+    function Tetradic(base: Color3): Color3[]
+
+    /**
+     *
+     * @param base {Color3} - The Color3 to generate palette from
+     * @returns An array of Color3 values
+     */
+    function Triadic(base: Color3): Color3[]
+
+    /**
+     * Determine the most "vibrant" colour from an array of Color3s
+     * @param swatches - An array of Color3s
+     * @param options - Optional dictionary of options to adjust goals
+     * @returns A Color3 matching the most "vibrant" colour
+     */
+    function Vibrant(swatches: Color3[], options?: VibrantOptions): Color3
   }
 }
 

@@ -1,6 +1,6 @@
 {
-    "name": "ColourUtils",
-    "tree": {
-        "$path": "src"
-    }
+  "name": "ColourUtils",
+  "tree": {
+    "$path": "src"
   }
+}

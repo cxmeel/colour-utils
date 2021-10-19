@@ -13,6 +13,7 @@
 [w3c contrast]: https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-contrast
 [wcag contrast ratio]: https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
 [colorblendy]: https://github.com/shazow/colorblendy
+[w3c perceived brightness]: https://www.w3.org/TR/AERT/#color-contrast
 
 <!-- Images -->
 
@@ -71,7 +72,7 @@ registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
 
 [dependencies]
-ColourUtils = "csqrl/colour-utils@^1.0.3"
+ColourUtils = "csqrl/colour-utils@^1.1.0"
 ```
 
 ```sh
@@ -124,6 +125,7 @@ TextLabel.TextColor3 = GetAccessibleTextColour(TextLabel.BackgroundColor3)
 - `ColourUtils.Emphasise(colour: Color3, coefficient: number, threshold: number?): Color3`
 - `ColourUtils.GetContrastRatio(foreground: Color3, background: Color3): number`
 - `ColourUtils.GetLuminance(colour: Color3): number`
+- `ColourUtils.GetPerceivedBrightness(colour: Color3): number`
 - `ColourUtils.Invert(colour: Color3): Color3`
 - `ColourUtils.isDark(colour: Color3): boolean`
 - `ColourUtils.isLight(colour: Color3): boolean`
@@ -147,6 +149,16 @@ TextLabel.TextColor3 = GetAccessibleTextColour(TextLabel.BackgroundColor3)
 - `ColourUtils.Blend.Multiply(background: Color3, foreground: Color3): Color3`
 - `ColourUtils.Blend.Overlay(background: Color3, foreground: Color3): Color3`
 - `ColourUtils.Blend.Screen(background: Color3, foreground: Color3): Color3`
+
+**Palette**
+
+- `ColourUtils.Palette.Analogous(base: Color3): Array<Color3>`
+- `ColourUtils.Palette.Complementary(base: Color3): Array<Color3>`
+- `ColourUtils.Palette.Monochromatic(base: Color3): Array<Color3>`
+- `ColourUtils.Palette.SplitComplementary(base: Color3): Array<Color3>`
+- `ColourUtils.Palette.Tetradic(base: Color3): Array<Color3>`
+- `ColourUtils.Palette.Triadic(base: Color3): Array<Color3>`
+- `ColourUtils.Palette.Vibrant(swatches: Array<Color3>, options: VibrantOptions?): Color3`
 
 ## API Methods
 
@@ -201,6 +213,18 @@ TextLabel.TextColor3 = GetAccessibleTextColour(TextLabel.BackgroundColor3)
 > #### Returns
 >
 > luminance (`number`) - The relative luminance of the given `Color3`, in the range of 0-1
+
+### GetPerceivedBrightness
+
+> Calculates the perceived brightness of a given Color3, using the [formula provided by W3C][w3c perceived brightness].
+>
+> #### Arguments
+>
+> colour (`Color3`) - The `Color3` to calculate the perceived brightness of
+>
+> #### Returns
+>
+> brightness (`number`) - The perceived brightness of the given `Color3`, in the range of 0-1
 
 ### GetContrastRatio
 
@@ -390,3 +414,102 @@ The blend submodule provides a way of applying blending operations (as you'd exp
 > #### Returns
 >
 > result (`Color3`) - A `Color3` resulting from blending `background` with `foreground`
+
+## Palette
+
+The palette submodule provides methods for generating colour palettes and operations relating to theming.
+
+### Analogous
+
+> Returns two nearby colours on the colour wheel, when given a base Color3.
+>
+> #### Arguments
+>
+> base (`Color3`) - The Color3 used as a "starting point" for determining the nearby colours
+>
+> #### Returns
+>
+> results (`Array<Color3>`) - Two Color3s located near the base Color3
+
+### Complementary
+
+> Returns the complementing colour to the given Color3. This should yield the same results as `Invert()` or `Rotate(..., 180)`.
+>
+> #### Arguments
+>
+> base (`Color3`) - The Color3 to find the complement of
+>
+> #### Returns
+>
+> results (`Array<Color3>`) - An array containing a single Color3 representing the complement of the base Color3. It is returned as an array for consistency with the other "harmony" methods
+
+### Monochromatic
+
+> Returns a lighter and darker shade of the passed Color3. This should yield the same results as `Lighten(..., .5)` and `Darken(..., .5)`.
+>
+> #### Arguments
+>
+> base (`Color3`) - The Color3 used as a base for the resulting palette
+>
+> #### Returns
+>
+> results (`Array<Color3>`) - Two Color3s; one lighter, one darker than the passed base Color3
+
+### SplitComplementary
+
+> Similarly to the Analogous and Complementary methods, SplitComplementary finds the complement of the base Color3, and returns two Color3s near to the complement.
+>
+> #### Arguments
+>
+> base (`Color3`) - The Color3 used as a base for the resulting palette
+>
+> #### Returns
+>
+> results (`Array<Color3>`) - Two Color3s which are nearby to the complement of the base Color3
+
+### Tetradic
+
+> Given a base Color3, the Tetradic harmony method will return three complementing colours which form a "rectangle" on the colour wheel.
+>
+> #### Arguments
+>
+> base (`Color3`) - The Color3 used as a base for the resulting palette
+>
+> #### Returns
+>
+> results (`Array<Color3>`) - Three complementary colours, resulting from the tetradic forumla
+
+### Triadic
+
+> Given a base Color3, the Triadic harmony method will return two Color3s which are equal distance from the base Color3 on the colour wheel. This forms an "equilateral triangle" on the colour wheel.
+>
+> #### Arguments
+>
+> base (`Color3`) - The Color3 used as a base for the resulting palette
+>
+> #### Returns
+>
+> results (`Array<Color3>`) - Two Color3s which are equal distance from the base Color3
+
+### Vibrant
+
+> Returns the "most vibrant" colour, given an array of Color3s.
+>
+> #### Arguments
+>
+> swatches (`Array<Color3>`) - An array of Color3s to analyse\
+> options (`VibrantOptions?`) - Optional configuration for adjusting target values (see below for defaults)
+>
+> #### Types
+>
+> ```lua
+> type VibrantOptions = {
+>     TargetLuminance: number? = .49,
+>     TargetSaturation: number? = 1,
+>     TargetValue: number? = .8,
+> }
+> ```
+>
+> #### Returns
+>
+> result (`Color3`) - The "most vibrant" Color3 from the given array of Color3s

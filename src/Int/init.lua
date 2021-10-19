@@ -1,4 +1,5 @@
 local Assert = require(script.Parent._Util.Assert)
+local ClampColour = require(script.Parent._Util.ClampColour)
 
 local floor = math.floor
 local rshift = bit32.rshift
@@ -13,7 +14,7 @@ local function FromInt(int: number): Color3
     local green = band(rshift(int, 8), 255)
     local blue = band(int, 255)
 
-    return Color3.fromRGB(red, green, blue)
+    return ClampColour(Color3.fromRGB(red, green, blue))
 end
 
 local function ToInt(colour: Color3): number

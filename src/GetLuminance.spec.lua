@@ -14,6 +14,6 @@ return function()
     end)
 
     it("returns a valid luminance for mid grey", function()
-        expect(GetLuminance(Color3.fromRGB(127, 127, 127))).to.equal(.212)
+        expect(GetLuminance(Color3.fromRGB(127, 127, 127))).to.be.near(.212, .001)
     end)
 end

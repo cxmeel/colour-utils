@@ -1,3 +1,5 @@
+local BasicallyIdentical = require(script.Parent.Parent._Util.BasicallyIdentical)
+
 return function()
     local Int = require(script.Parent)
 
@@ -19,9 +21,9 @@ return function()
         end)
 
         it("converts a number to Color3", function()
-            expect(Int.fromInt(0)).to.equal(Color3.new())
-            expect(Int.fromInt(0x00A2FF)).to.equal(Color3.fromRGB(0, 162, 255))
-            expect(Int.fromInt(0xFFFFFF)).to.equal(Color3.new(1, 1, 1))
+            expect(BasicallyIdentical(Color3.new(), Int.fromInt(0))).to.equal(true)
+            expect(BasicallyIdentical(Color3.fromRGB(0, 162, 255), Int.fromInt(0x00A2FF))).to.equal(true)
+            expect(BasicallyIdentical(Color3.new(1, 1, 1), Int.fromInt(0xFFFFFF))).to.equal(true)
         end)
     end)
 end

@@ -1,4 +1,5 @@
 local Assert = require(script.Parent._Util.Assert)
+local ClampColour = require(script.Parent._Util.ClampColour)
 
 local sub = string.sub
 local gsub = string.gsub
@@ -31,7 +32,7 @@ local function FromHex(hex: string): Color3
     local green = tonumber(sub(hex, 3, 4), 16)
     local blue = tonumber(sub(hex, 5, 6), 16)
 
-    return Color3.fromRGB(red, green, blue)
+    return ClampColour(Color3.fromRGB(red, green, blue))
 end
 
 local function ToHex(colour: Color3): string

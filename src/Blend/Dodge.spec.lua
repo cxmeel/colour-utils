@@ -1,4 +1,4 @@
-local floor = math.floor
+local BasicallyIdentical = require(script.Parent.Parent._Util.BasicallyIdentical)
 
 return function()
   local Filter = require(script.Parent.Dodge)
@@ -14,9 +14,6 @@ return function()
 
   it("correctly applies filter", function()
     local filterResult = Filter(background, foreground)
-
-    expect(filterResult.R).to.equal(result.R)
-    expect(floor(filterResult.G * 255)).to.equal(floor(result.G * 255))
-    expect(filterResult.B).to.equal(result.B)
+    expect(BasicallyIdentical(result, filterResult, .0025)).to.equal(true)
   end)
 end

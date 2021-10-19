@@ -4,6 +4,7 @@ local module = {
     Emphasise = require(script.Emphasise),
     GetContrastRatio = require(script.GetContrastRatio),
     GetLuminance = require(script.GetLuminance),
+    GetPerceivedBrightness = require(script.GetPerceivedBrightness),
     Invert = require(script.Invert),
     isDark = require(script.isDark),
     isLight = require(script.isLight),
@@ -14,6 +15,7 @@ local module = {
     Blend = require(script.Blend),
     Hex = require(script.Hex),
     Int = require(script.Int),
+    Palette = require(script.Palette),
 }
 
 module.Emphasize = module.Emphasise

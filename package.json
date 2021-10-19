@@ -1,6 +1,6 @@
 {
   "name": "@rbxts/colour-utils",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Colour manipulation utility for Roblox",
   "homepage": "https://github.com/csqrl/colour-utils",
   "main": "src/init.lua",

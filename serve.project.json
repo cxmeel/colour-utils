@@ -1,0 +1,14 @@
+{
+  "name": "colour-utils-serve",
+  "tree": {
+    "$className": "DataModel",
+    "$ignoreUnknownInstances": true,
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "$ignoreUnknownInstances": true,
+      "ColourUtils": {
+        "$path": "default.project.json"
+      }
+    }
+  }
+}

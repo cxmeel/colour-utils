@@ -1,3 +1,5 @@
+local BasicallyIdentical = require(script.Parent.Parent._Util.BasicallyIdentical)
+
 return function()
   local Filter = require(script.Parent.Screen)
 
@@ -12,9 +14,6 @@ return function()
 
   it("correctly applies filter", function()
     local filterResult = Filter(background, foreground)
-
-    expect(filterResult.R).to.equal(result.R)
-    expect(filterResult.G).to.equal(result.G)
-    expect(filterResult.B).to.equal(result.B)
+    expect(BasicallyIdentical(result, filterResult)).to.equal(true)
   end)
 end

@@ -1,3 +1,5 @@
+local BasicallyIdentical = require(script.Parent._Util.BasicallyIdentical)
+
 return function()
   local Rotate = require(script.Parent.Rotate)
   local Invert = require(script.Parent.Invert)
@@ -18,7 +20,8 @@ return function()
 
   it("can rotate a colour 360deg to receive the same colour", function()
     local colour = Color3.new(0, 1, 1)
+    local result = Rotate(colour, 360)
 
-    expect(Rotate(colour, 360)).to.equal(colour)
+    expect(BasicallyIdentical(colour, result)).to.equal(true)
   end)
 end
