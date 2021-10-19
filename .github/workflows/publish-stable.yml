@@ -20,6 +20,9 @@ jobs:
         with:
           node-version: 16
 
+      - name: Install Dependencies
+        run: npm i
+
       - name: Setup Toolchain
         uses: roblox/setup-foreman@v1
         with:
