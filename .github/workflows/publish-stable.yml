@@ -21,9 +21,8 @@ jobs:
           node-version: 16
 
       - name: Install Dependencies
-        run: |
-          npm i
-          npm i -g roblox-ts
+        shell: bash
+        run: npm i
 
       - name: Setup Toolchain
         uses: roblox/setup-foreman@v1
@@ -31,6 +30,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Report Tool Versions
+        shell: bash
         run: |
           printf "npm %s" `npm -v`
           printf "node %s" `node -v`
@@ -42,6 +42,7 @@ jobs:
           token: ${{ secrets.NPM_TOKEN }}
 
       - name: Upload Release to Roblox (Stable)
+        shell: bash
         run: |
           find ./src -name "*.spec.lua" -type f -delete
           rojo upload default.project.json --asset_id $ASSET_ID --cookie "$ROBLOSECURITY"
@@ -64,6 +65,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Report Tool Versions
+        shell: bash
         run: foreman list
 
       - name: Publish Release to Wally

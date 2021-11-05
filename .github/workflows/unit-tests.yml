@@ -29,10 +29,13 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Report Tool Versions
-        run: rojo --version
+        shell: bash
+        run: foreman list
 
       - name: Build Test Project
+        shell: bash
         run: rojo build test.project.json -o unit-tests.rbxlx
 
       - name: Run Unit Tests
+        shell: bash
         run: run-in-roblox --place unit-tests.rbxlx --script test-runner.server.lua

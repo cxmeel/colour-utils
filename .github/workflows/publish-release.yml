@@ -25,15 +25,19 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Report Tool Versions
+        shell: bash
         run: foreman list
 
       - name: Get Release Details
+        shell: base
         run: |
           echo "PROJECT_VERSION=`grep -Po '(?<=version = ")([^"]+)' wally.toml`" >> $GITHUB_ENV
           echo "PROJECT_COMMIT_ID=`git rev-parse --short ${{ github.sha }}`" >> $GITHUB_ENV
 
       - name: Build Project
+        shell: bash
         run: |
+          find ./src -name "*.spec.lua" -type f -delete
           rojo build default.project.json -o release.rbxmx
           rojo build default.project.json -o release.rbxm
 
