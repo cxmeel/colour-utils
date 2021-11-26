@@ -73,7 +73,7 @@ jobs:
         env:
           WALLY_TOKEN: ${{ secrets.WALLY_TOKEN }}
         run: |
-          rm -rf packages roblox.toml testez.toml .github .foreman-install node_modules .vscode
+          rm -rf packages roblox.toml testez.toml .github .foreman-install node_modules .vscode modules
           mkdir -p ~/.wally
           printf "[tokens]\n\"https://api.wally.run/\" = \"%s\"" "$WALLY_TOKEN" >> ~/.wally/auth.toml
           wally publish

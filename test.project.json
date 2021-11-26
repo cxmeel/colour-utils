@@ -16,7 +16,7 @@
       "Packages": {
         "$className": "Folder",
         "TestEZ": {
-          "$path": "packages/TestEZ"
+          "$path": "modules/testez"
         }
       },
       "TestRunner": {
