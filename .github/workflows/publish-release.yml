@@ -29,9 +29,9 @@ jobs:
         run: foreman list
 
       - name: Get Release Details
-        shell: base
+        shell: bash
         run: |
-          echo "PROJECT_VERSION=`grep -Po '(?<=version = ")([^"]+)' wally.toml`" >> $GITHUB_ENV
+          echo "PROJECT_VERSION=`grep -Pao '(?<=version = ")([^"]+)' wally.toml`" >> $GITHUB_ENV
           echo "PROJECT_COMMIT_ID=`git rev-parse --short ${{ github.sha }}`" >> $GITHUB_ENV
 
       - name: Build Project
