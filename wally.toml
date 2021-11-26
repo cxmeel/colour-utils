@@ -1,11 +1,10 @@
 [package]
 name = "csqrl/colour-utils"
 description = "Colour manipulation utility for Roblox"
-version = "1.1.0"
+version = "1.1.1"
 license = "MIT"
 authors = ["csqrl (https://github.com/csqrl)"]
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
-
-[dev-dependencies]
-TestEZ = "roblox/testez@^0.4.1"
+exclude = ["**"]
+include = ["src", "src/**", "wally.toml", "wally.lock", "default.project.json"]

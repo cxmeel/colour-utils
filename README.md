@@ -123,6 +123,7 @@ TextLabel.TextColor3 = GetAccessibleTextColour(TextLabel.BackgroundColor3)
 
 - `ColourUtils.Darken(colour: Color3, coefficient: number): Color3`
 - `ColourUtils.Emphasise(colour: Color3, coefficient: number, threshold: number?): Color3`
+- `ColourUtils.GetContrastingColour(foreground: Color3, background: Color3, ratio: number?): Color3`
 - `ColourUtils.GetContrastRatio(foreground: Color3, background: Color3): number`
 - `ColourUtils.GetLuminance(colour: Color3): number`
 - `ColourUtils.GetPerceivedBrightness(colour: Color3): number`
@@ -202,6 +203,20 @@ TextLabel.TextColor3 = GetAccessibleTextColour(TextLabel.BackgroundColor3)
 >
 > colour `Color3` - The lightened or darkened `Color3`
 
+### GetContrastingColour
+
+> Adjusts the given foreground `Color3` to meet the minimum contrast ratio between foreground and background.
+>
+> #### Arguments
+>
+> background (`Color3`) - A `Color3` value representing the background\
+> foreground (`Color3`) - A `Color3` value representing the foreground\
+> ratio (`number`) - The minimum contrast ratio between background and foreground (default: `4.5`)
+>
+> #### Returns
+>
+> colour `Color3` - The adjusted `Color3`
+
 ### GetLuminance
 
 > Get the relative brightness of a given `Color3`, using the [formula provided by WCAG][wcag contrast ratio].
@@ -232,8 +247,8 @@ TextLabel.TextColor3 = GetAccessibleTextColour(TextLabel.BackgroundColor3)
 >
 > #### Arguments
 >
-> background (`Color3`) - A `Color3` value representing the background\
 > foreground (`Color3`) - A `Color3` value representing the foreground
+> background (`Color3`) - A `Color3` value representing the background\
 >
 > #### Returns
 >

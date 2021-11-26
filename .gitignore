@@ -1,18 +1,10 @@
-*.rbxlx.lock
-*.rbxl.lock
-
-*.rbxlx
-*.rbxl
-
-*.rbxmx
-*.rbxm
+*.rbx*
 
 roblox.toml
 testez.toml
-/dist
 
-/node_modules
+node_modules/
 *.tsbuildinfo
-/include
-/out
-/packages
+include/
+out/
+*packages/

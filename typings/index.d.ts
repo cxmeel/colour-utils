@@ -45,18 +45,31 @@ declare namespace ColourUtils {
 
   /**
    *
-   * @param colour {Color3} colour - The Color3 to get the perceived brightness of
+   * @param {Color3} colour - The Color3 to get the perceived brightness of
    * @returns {number}
    */
   function GetPerceivedBrightness(colour: Color3): number
 
   /**
    * Calculates the contrast ratio between two colours, using the formula provided by WCAG. The result is a number in the range of 0-21
-   * @param {Color3} background - A Color3 representing the background
    * @param {Color3} foreground - A Color3 representing the foreground
+   * @param {Color3} background - A Color3 representing the background
    * @returns {number}
    */
-  function GetContrastRatio(background: Color3, foreground: Color3): number
+  function GetContrastRatio(foreground: Color3, background: Color3): number
+
+  /**
+   *
+   * @param {Color3} foreground - A Color3 representing the foreground
+   * @param {Color3} background - A Color3 representing the background
+   * @param {number} ratio - The contrast ratio to use, if not provided a default ratio of 4.5 will be used
+   * @returns {Color3}
+   */
+  function GetContrastingColour(
+    foreground: Color3,
+    background: Color3,
+    ratio?: number
+  ): Color3
 
   /**
    * Invert a colour
@@ -122,41 +135,41 @@ declare namespace ColourUtils {
   namespace Blend {
     /**
      * Apply burn blend to two Color3s
-     * @param background - The bottom Color3 to apply blend to
-     * @param foreground - The top Color3 to apply blend to
-     * @returns A resulting Color3 from applying the blend
+     * @param {Color3} background- The bottom Color3 to apply blend to
+     * @param {Color3} foreground - The top Color3 to apply blend to
+     * @returns {Color3} A resulting Color3 from applying the blend
      */
     function Burn(background: Color3, foreground: Color3): Color3
 
     /**
      * Apply dodge blend to two Color3s
-     * @param background - The bottom Color3 to apply blend to
-     * @param foreground - The top Color3 to apply blend to
-     * @returns A resulting Color3 from applying the blend
+     * @param {Color3} background- The bottom Color3 to apply blend to
+     * @param {Color3} foreground - The top Color3 to apply blend to
+     * @returns {Color3} A resulting Color3 from applying the blend
      */
     function Dodge(background: Color3, foreground: Color3): Color3
 
     /**
      * Apply multiply blend to two Color3s
-     * @param background - The bottom Color3 to apply blend to
-     * @param foreground - The top Color3 to apply blend to
-     * @returns A resulting Color3 from applying the blend
+     * @param {Color3} background- The bottom Color3 to apply blend to
+     * @param {Color3} foreground - The top Color3 to apply blend to
+     * @returns {Color3} A resulting Color3 from applying the blend
      */
     function Multiply(background: Color3, foreground: Color3): Color3
 
     /**
      * Apply overlay blend to two Color3s
-     * @param background - The bottom Color3 to apply blend to
-     * @param foreground - The top Color3 to apply blend to
-     * @returns A resulting Color3 from applying the blend
+     * @param {Color3} background- The bottom Color3 to apply blend to
+     * @param {Color3} foreground - The top Color3 to apply blend to
+     * @returns {Color3} A resulting Color3 from applying the blend
      */
     function Overlay(background: Color3, foreground: Color3): Color3
 
     /**
      * Apply screen blend to two Color3s
-     * @param background - The bottom Color3 to apply blend to
-     * @param foreground - The top Color3 to apply blend to
-     * @returns A resulting Color3 from applying the blend
+     * @param {Color3} background- The bottom Color3 to apply blend to
+     * @param {Color3} foreground - The top Color3 to apply blend to
+     * @returns {Color3} A resulting Color3 from applying the blend
      */
     function Screen(background: Color3, foreground: Color3): Color3
   }
@@ -164,51 +177,51 @@ declare namespace ColourUtils {
   namespace Palette {
     /**
      *
-     * @param base {Color3} - The Color3 to generate palette from
-     * @returns An array of Color3 values
+     * @param {Color3} base - The Color3 to generate palette from
+     * @returns {Color3[]} An array of Color3 values
      */
     function Analogous(base: Color3): Color3[]
 
     /**
      *
-     * @param base {Color3} - The Color3 to generate palette from
-     * @returns An array of Color3 values
+     * @param {Color3} base - The Color3 to generate palette from
+     * @returns {Color3[]} An array of Color3 values
      */
     function Complementary(base: Color3): Color3[]
 
     /**
      *
-     * @param base {Color3} - The Color3 to generate palette from
-     * @returns An array of Color3 values
+     * @param {Color3} base - The Color3 to generate palette from
+     * @returns {Color3[]} An array of Color3 values
      */
     function Monochromatic(base: Color3): Color3[]
 
     /**
      *
-     * @param base {Color3} - The Color3 to generate palette from
-     * @returns An array of Color3 values
+     * @param {Color3} base - The Color3 to generate palette from
+     * @returns {Color3[]} An array of Color3 values
      */
     function SplitComplementary(base: Color3): Color3[]
 
     /**
      *
-     * @param base {Color3} - The Color3 to generate palette from
-     * @returns An array of Color3 values
+     * @param {Color3} base - The Color3 to generate palette from
+     * @returns {Color3[]} An array of Color3 values
      */
     function Tetradic(base: Color3): Color3[]
 
     /**
      *
-     * @param base {Color3} - The Color3 to generate palette from
-     * @returns An array of Color3 values
+     * @param {Color3} base - The Color3 to generate palette from
+     * @returns {Color3[]} An array of Color3 values
      */
     function Triadic(base: Color3): Color3[]
 
     /**
      * Determine the most "vibrant" colour from an array of Color3s
-     * @param swatches - An array of Color3s
-     * @param options - Optional dictionary of options to adjust goals
-     * @returns A Color3 matching the most "vibrant" colour
+     * @param {Color3[]} swatches - An array of Color3s
+     * @param {VibrantOptions} options - Optional dictionary of options to adjust goals
+     * @returns {Color3} A Color3 matching the most "vibrant" colour
      */
     function Vibrant(swatches: Color3[], options?: VibrantOptions): Color3
   }

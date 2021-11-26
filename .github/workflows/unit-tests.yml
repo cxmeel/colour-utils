@@ -14,8 +14,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-        with:
-          submodules: true
 
       - name: Install Roblox Studio
         uses: OrbitalOwen/roblox-win-installer-action@1.1
