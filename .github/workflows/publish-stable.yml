@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+        with:
+          submodules: true
 
       - name: Setup Node 16.x
         uses: actions/setup-node@v1
