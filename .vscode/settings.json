@@ -1,5 +1,8 @@
 {
-  "git.ignoreSubmodules": true,
-  "git.autoRepositoryDetection": "openEditors",
-  "git.detectSubmodules": false
+  "robloxLsp.diagnostics.severity": {
+    "unused-local": "Error",
+    "unused-function": "Error",
+    "unused-vararg": "Error",
+    "duplicate-index": "Error"
+  }
 }
