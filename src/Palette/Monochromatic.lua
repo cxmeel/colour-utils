@@ -8,10 +8,10 @@ local assertTypeOf = Assert.prepTypeOf("Monochromatic")
 type Array<T> = Types.Array<T>
 
 return function(base: Color3): Array<Color3>
-  assertTypeOf("base", "Color3", base)
+	assertTypeOf("base", "Color3", base)
 
-  return {
-    Lighten(base, .5),
-    Darken(base, .5),
-  }
+	return {
+		Lighten(base, 0.5),
+		Darken(base, 0.5),
+	}
 end

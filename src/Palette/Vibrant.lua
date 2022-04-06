@@ -12,40 +12,40 @@ local toHSV = Color3.toHSV
 type Array<T> = Types.Array<T>
 
 export type VibrantOptions = {
-  TargetLuminance: number,
-  TargetSaturation: number,
-  TargetValue: number,
+	TargetLuminance: number,
+	TargetSaturation: number,
+	TargetValue: number,
 }
 
 local DEFAULT_OPTIONS: VibrantOptions = {
-  TargetLuminance = .49,
-  TargetSaturation = 1,
-  TargetValue = .8,
+	TargetLuminance = 0.49,
+	TargetSaturation = 1,
+	TargetValue = 0.8,
 }
 
 return function(swatches: Array<Color3>, options: VibrantOptions?): Color3
-  assertArrayOf("swatches", "Color3", swatches)
+	assertArrayOf("swatches", "Color3", swatches)
 
-  local options = Schema.Loose(DEFAULT_OPTIONS, options)::VibrantOptions
+	options = Schema.Loose(DEFAULT_OPTIONS, options) :: VibrantOptions
 
-  local vibrant: Color3 = nil
-  local distance = math.huge
+	local vibrant: Color3 = nil
+	local distance = math.huge
 
-  for _, swatch in ipairs(swatches) do
-    local _, sat, val = toHSV(swatch)
-    local lum = GetLuminance(swatch)
+	for _, swatch in ipairs(swatches) do
+		local _, sat, val = toHSV(swatch)
+		local lum = GetLuminance(swatch)
 
-    local deltaSat = abs(sat - options.TargetSaturation)
-    local deltaVal = abs(val - options.TargetValue)
-    local deltaLum = abs(lum - options.TargetLuminance)
+		local deltaSat = abs(sat - options.TargetSaturation)
+		local deltaVal = abs(val - options.TargetValue)
+		local deltaLum = abs(lum - options.TargetLuminance)
 
-    local dist = sqrt((deltaSat ^ 2) + (deltaVal ^ 2) + (deltaLum ^ 2))
+		local dist = sqrt((deltaSat ^ 2) + (deltaVal ^ 2) + (deltaLum ^ 2))
 
-    if (dist < distance) then
-      distance = dist
-      vibrant = swatch
-    end
-  end
+		if dist < distance then
+			distance = dist
+			vibrant = swatch
+		end
+	end
 
-  return vibrant
+	return vibrant
 end

@@ -7,11 +7,11 @@ local assertTypeOf = Assert.prepTypeOf("Tetradic")
 type Array<T> = Types.Array<T>
 
 return function(base: Color3): Array<Color3>
-  assertTypeOf("base", "Color3", base)
+	assertTypeOf("base", "Color3", base)
 
-  return {
-    Rotate(base, -180),
-    Rotate(base, -120),
-    Rotate(base, -300),
-  }
+	return {
+		Rotate(base, -180),
+		Rotate(base, -120),
+		Rotate(base, -300),
+	}
 end

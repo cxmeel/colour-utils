@@ -7,9 +7,9 @@ local assertTypeOf = Assert.prepTypeOf("Complementary")
 type Array<T> = Types.Array<T>
 
 return function(base: Color3): Array<Color3>
-  assertTypeOf("base", "Color3", base)
+	assertTypeOf("base", "Color3", base)
 
-  return {
-    Rotate(base, 180),
-  }
+	return {
+		Rotate(base, 180),
+	}
 end
