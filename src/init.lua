@@ -13,6 +13,7 @@ local module = {
 	Rotate = require(script.Rotate),
 
 	-- Submodules --
+	APCA = require(script.APCA),
 	Blend = require(script.Blend),
 	Blind = require(script.Blind),
 	Hex = require(script.Hex),
