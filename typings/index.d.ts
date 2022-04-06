@@ -115,6 +115,16 @@ declare namespace ColourUtils {
     function toInt(colour: Color3): number
   }
 
+  namespace APCA {
+    /**
+     * Calculates the contrast ratio between two colours. The result should be a number between roughly -100 and 100. See {@link https://www.myndex.com/APCA/#general-guidelines-on-levels Myndex's General Guidelines} for more information.
+     * @see https://www.myndex.com/APCA/#general-guidelines-on-levels
+     * @param {Color3} foreground - A Color3 representing the foreground
+     * @param {Color3} background - A Color3 representing the background
+     * @returns {number}
+     */
+    function GetContrastRatio(foreground: Color3, background: Color3): number
+  }
   namespace Blind {
     type Enums = {
       Blind: {
