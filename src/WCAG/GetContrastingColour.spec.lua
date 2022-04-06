@@ -1,4 +1,4 @@
-local BasicallyIdentical = require(script.Parent._Util.BasicallyIdentical)
+local BasicallyIdentical = require(script.Parent.Parent._Util.BasicallyIdentical)
 
 return function()
 	local GetContrastingColour = require(script.Parent.GetContrastingColour)
