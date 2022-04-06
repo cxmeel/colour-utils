@@ -52,6 +52,7 @@ declare namespace ColourUtils {
 
   export const GetContrastRatio: typeof WCAG.GetContrastRatio
   export const GetContrastingColour: typeof WCAG.GetContrastingColour
+  export const GetContrastingColor: typeof GetContrastingColour
 
   /**
    * Invert a colour
