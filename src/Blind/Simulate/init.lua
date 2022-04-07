@@ -17,12 +17,12 @@ type VectorXyY = {
 local Enums = require(script.Parent.Enum)
 local Configs = require(script.Configs)
 
-local function RGBtoXYZ(color: Color3): Vector3
+local function RGBtoXYZ(colour: Color3): Vector3
 	local M = Configs.Matrix.RGB_XYZ
 
-	local r = color.R
-	local g = color.G
-	local b = color.B
+	local r = colour.R
+	local g = colour.G
+	local b = colour.B
 
 	r = if r > 0.04 then ((r + 0.055) / 1.055) ^ 2.4 else r / 12.92
 	g = if g > 0.04 then ((g + 0.055) / 1.055) ^ 2.4 else g / 12.92
@@ -61,30 +61,38 @@ local function Anomalise(origin: Color3, blinded: Color3, multiplier: number?): 
 	)
 end
 
-local function SimulateBlinder(color: Color3, blinder: number): Color3
-	assert(typeof(color) == "Color3", "Color must be a Color3")
+--[=[
+	@function Simulate
+	@within Blind
+
+	@param colour Color3 -- The colour to simulate.
+	@param blinder Blind -- The blinder to simulate with.
+	@return Color3 -- The simulated colour.
+]=]
+local function SimulateBlinder(colour: Color3, blinder: number): Color3
+	assert(typeof(colour) == "Color3", "Colour must be a Color3")
 	assert(typeof(blinder) == "number", "Blinder must be a number (see Enums.Blind)")
 
 	local group = Configs.Groups[blinder]
 	local anomalise = Configs.Anomalised[blinder]
 
 	if group == Enums.Group.Trichroma then
-		return color
+		return colour
 	end
 
 	if group == Enums.Group.Achroma then
-		local val = color.R * 0.213 + color.G * 0.715 + color.B * 0.072
+		local val = colour.R * 0.213 + colour.G * 0.715 + colour.B * 0.072
 		local blinded = Color3.new(val, val, val)
 
 		if anomalise then
-			return Anomalise(color, blinded)
+			return Anomalise(colour, blinded)
 		end
 
 		return blinded
 	end
 
 	local line = Configs.Blinder[group]
-	local xyy = XYZtoXyY(RGBtoXYZ(color))
+	local xyy = XYZtoXyY(RGBtoXYZ(colour))
 
 	local slope = (xyy.y - line.Y) / (xyy.X - line.X)
 	local yi = xyy.y - xyy.X * slope
@@ -140,7 +148,7 @@ local function SimulateBlinder(color: Color3, blinder: number): Color3
 	local blinded = Color3.fromRGB(vector.R or 0, vector.G or 0, vector.B or 0)
 
 	if anomalise then
-		return Anomalise(color, blinded)
+		return Anomalise(colour, blinded)
 	end
 
 	return blinded

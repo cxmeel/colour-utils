@@ -1,3 +1,6 @@
+--[=[
+	@class ColourUtils
+]=]
 local module = {
 	-- Methods --
 	Darken = require(script.Darken),

@@ -1,3 +1,6 @@
+--[=[
+	@class Palette
+]=]
 return {
 	Analogous = require(script.Analogous),
 	Complementary = require(script.Complementary),

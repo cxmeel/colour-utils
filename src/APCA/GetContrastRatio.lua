@@ -37,6 +37,14 @@ local function SoftClampBlack(y: number): number
 	return if y > CONST.BLK_THRS then y else y + abs(y - CONST.BLK_THRS) ^ CONST.BLK_CLMP
 end
 
+--[=[
+	@function GetContrastRatio
+	@within APCA
+
+	@param foreground Color3 -- The foreground colour.
+	@param background Color3 -- The background colour.
+	@return number -- The contrast ratio [≈-100-100].
+]=]
 local function GetContrastRatio(foreground: Color3, background: Color3): number
 	assertTypeOf("foreground", "Color3", foreground)
 	assertTypeOf("background", "Color3", background)

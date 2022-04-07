@@ -1,3 +1,6 @@
+--[=[
+	@class Blend
+]=]
 return {
 	Multiply = require(script.Multiply),
 	Screen = require(script.Screen),

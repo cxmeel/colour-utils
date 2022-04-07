@@ -7,6 +7,13 @@ local assertTypeOf = Assert.prepTypeOf("Monochromatic")
 
 type Array<T> = Types.Array<T>
 
+--[=[
+	@function Monochromatic
+	@within Palette
+
+	@param base Color3 -- The base colour.
+	@return {Color3} -- The monochromatic colours.
+]=]
 return function(base: Color3): Array<Color3>
 	assertTypeOf("base", "Color3", base)
 

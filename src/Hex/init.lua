@@ -10,6 +10,21 @@ local split = string.split
 local HEX_EXCLUDE_PATTERN = "[^A-Fa-f0-9]"
 local HEX_FORMAT_PATTERN = "%.2x%.2x%.2x"
 
+--[=[
+	@function FromHex
+	@within Hex
+
+	:::tip
+
+	You can use hex values in any format. This includes with or without
+	a leading hash, any case, and any length (`FromHex` will try to
+	interpret malformed hex codes as best as possible).
+
+	:::
+
+	@param hex string -- The hex string to convert.
+	@return Color3 -- The resulting Color3.
+]=]
 local function FromHex(hex: string): Color3
 	Assert.typeOf("FromHex", "hex", "string", hex)
 
@@ -35,6 +50,20 @@ local function FromHex(hex: string): Color3
 	return ClampColour(Color3.fromRGB(red, green, blue))
 end
 
+--[=[
+	@function ToHex
+	@within Hex
+
+	:::note
+
+	The hex string is always lowercase, will always be 6 characters long, and
+	is not prefixed with a hash.
+
+	:::
+
+	@param colour Color3 -- The colour to convert.
+	@return string -- The hex representation of the colour.
+]=]
 local function ToHex(colour: Color3): string
 	Assert.typeOf("ToHex", "colour", "Color3", colour)
 
@@ -47,6 +76,9 @@ local function ToHex(colour: Color3): string
 	return hex
 end
 
+--[=[
+	@class Hex
+]=]
 return {
 	fromHex = FromHex,
 	toHex = ToHex,

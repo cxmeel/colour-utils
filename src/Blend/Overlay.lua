@@ -1,5 +1,13 @@
 local PrepFilter = require(script.Parent._Filter)
 
+--[=[
+	@function Overlay
+	@within Blend
+
+	@param background Color3 -- The background colour.
+	@param foreground Color3 -- The foreground colour.
+	@return Color3 -- The resulting colour.
+]=]
 return PrepFilter("Overlay", function(background: number, foreground: number): number
 	local bg = background * 255
 	local fg = foreground * 255

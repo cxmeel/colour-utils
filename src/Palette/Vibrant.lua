@@ -17,12 +17,37 @@ export type VibrantOptions = {
 	TargetValue: number,
 }
 
+--[=[
+	@interface VibrantOptions
+	@within Palette
+	.TargetLuminance number -- The target luminance.
+	.TargetSaturation number -- The target saturation.
+	.TargetValue number -- The target value.
+]=]
 local DEFAULT_OPTIONS: VibrantOptions = {
 	TargetLuminance = 0.49,
 	TargetSaturation = 1,
 	TargetValue = 0.8,
 }
 
+--[=[
+	@function Vibrant
+	@within Palette
+
+	The default options are:
+
+	```lua
+	{
+		TargetLuminance = 0.49,
+		TargetSaturation = 1,
+		TargetValue = 0.8,
+	}
+	```
+
+	@param swatches {Color3} -- The swatches to select from.
+	@param options? VibrantOptions -- The options to use.
+	@return Color3 -- The "most vibrant" colour.
+]=]
 return function(swatches: Array<Color3>, options: VibrantOptions?): Color3
 	assertArrayOf("swatches", "Color3", swatches)
 
