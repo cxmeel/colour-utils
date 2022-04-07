@@ -6,11 +6,18 @@ local assertTypeOf = Assert.prepTypeOf("Triadic")
 
 type Array<T> = Types.Array<T>
 
-return function(base: Color3): Array<Color3>
-  assertTypeOf("base", "Color3", base)
+--[=[
+	@function Triadic
+	@within Palette
 
-  return {
-    Rotate(base, 180 - 60),
-    Rotate(base, 180 + 60),
-  }
+	@param base Color3 -- The base colour.
+	@return {Color3} -- The triadic colours.
+]=]
+return function(base: Color3): Array<Color3>
+	assertTypeOf("base", "Color3", base)
+
+	return {
+		Rotate(base, 180 - 60),
+		Rotate(base, 180 + 60),
+	}
 end

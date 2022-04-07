@@ -6,11 +6,18 @@ local assertTypeOf = Assert.prepTypeOf("SplitComplementary")
 
 type Array<T> = Types.Array<T>
 
-return function(base: Color3): Array<Color3>
-  assertTypeOf("base", "Color3", base)
+--[=[
+	@function SplitComplementary
+	@within Palette
 
-  return {
-    Rotate(base, 180 - 30),
-    Rotate(base, 180 + 30),
-  }
+	@param base Color3 -- The base colour.
+	@return {Color3} -- The split complementary colours.
+]=]
+return function(base: Color3): Array<Color3>
+	assertTypeOf("base", "Color3", base)
+
+	return {
+		Rotate(base, 180 - 30),
+		Rotate(base, 180 + 30),
+	}
 end

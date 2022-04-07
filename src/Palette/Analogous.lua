@@ -6,11 +6,18 @@ local assertTypeOf = Assert.prepTypeOf("Analogous")
 
 type Array<T> = Types.Array<T>
 
-return function(base: Color3): Array<Color3>
-  assertTypeOf("base", "Color3", base)
+--[=[
+	@function Analogous
+	@within Palette
 
-  return {
-    Rotate(base, -30),
-    Rotate(base, 30),
-  }
+	@param base Color3 -- The base colour.
+	@return {Color3} -- The analogous colours.
+]=]
+return function(base: Color3): Array<Color3>
+	assertTypeOf("base", "Color3", base)
+
+	return {
+		Rotate(base, -30),
+		Rotate(base, 30),
+	}
 end

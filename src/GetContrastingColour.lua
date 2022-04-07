@@ -1,28 +1,28 @@
-local Assert = require(script.Parent._Util.Assert)
-local assertTypeOf = Assert.prepTypeOf("GetContrastingColour")
+local targetModule = script.Parent.WCAG.GetContrastingColour
+local module = require(targetModule)
 
-local GetContrastRatio = require(script.Parent.GetContrastRatio)
-local Lighten = require(script.Parent.Lighten)
-local Darken = require(script.Parent.Darken)
-local isDark = require(script.Parent.isDark)
+--[=[
+  @function GetContrastingColour
+  @within ColourUtils
 
-local MIN_RATIO = 4.5
+  :::caution
 
-return function(foreground: Color3, background: Color3, ratio: number?): Color3
-	assertTypeOf("foreground", "Color3", foreground)
-	assertTypeOf("background", "Color3", background)
+  GetContrastingColour is now redirected to [WCAG.GetContrastingColour]. You should directly
+  use the WCAG module in newer work. This redirect is for backwards compatibility, and may be
+  removed or changed in future versions.
 
-	ratio = type(ratio) == "number" and ratio or MIN_RATIO
+  :::
 
-	local contrastRatio = GetContrastRatio(foreground, background)
+  :::tip
 
-	if contrastRatio >= ratio then
-		return foreground
-	end
+  GetContrastingColour is also available under the `GetContrastingColor` alias.
+  This **does not** apply to the WCAG and APCA submodules!
 
-	if isDark(background) then
-		return Lighten(foreground, (ratio - contrastRatio) / ratio)
-	end
+  :::
 
-	return Darken(foreground, (ratio - contrastRatio) / ratio)
-end
+  @param foreground Color3 -- The foreground colour.
+  @param background Color3 -- The background colour.
+  @param ratio? number -- The ratio to check against [0-1] (defaults to 4.5).
+  @return Color3 -- The contrasting colour.
+]=]
+return module

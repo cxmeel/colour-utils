@@ -4,9 +4,17 @@ local lshift = bit32.lshift
 local clamp = math.clamp
 local max = math.max
 
-return PrepFilter("Burn", function(background: number, foreground: number): number
-  local bg = clamp(background * 255, 0, 255)
-  local fg = foreground * 255
+--[=[
+	@function Burn
+	@within Blend
 
-  return (bg == 0) and bg or max(0, (255 - lshift((255 - fg), 8) / bg))
+	@param background Color3 -- The background colour.
+	@param foreground Color3 -- The foreground colour.
+	@return Color3 -- The resulting colour.
+]=]
+return PrepFilter("Burn", function(background: number, foreground: number): number
+	local bg = clamp(background * 255, 0, 255)
+	local fg = foreground * 255
+
+	return (bg == 0) and bg or max(0, (255 - lshift((255 - fg), 8) / bg))
 end)

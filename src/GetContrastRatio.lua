@@ -1,17 +1,20 @@
-local Assert = require(script.Parent._Util.Assert)
-local assertTypeOf = Assert.prepTypeOf("GetContrastRatio")
+local targetModule = script.Parent.WCAG.GetContrastRatio
+local module = require(targetModule)
 
-local GetLuminance = require(script.Parent.GetLuminance)
+--[=[
+  @function GetContrastRatio
+  @within ColourUtils
 
-local max = math.max
-local min = math.min
+  :::caution
 
-return function(foreground: Color3, background: Color3): number
-    assertTypeOf("foreground", "Color3", foreground)
-    assertTypeOf("background", "Color3", background)
+  GetContrastRatio is now redirected to [WCAG.GetContrastRatio]. You should directly
+  use the WCAG module in newer work. This redirect is for backwards compatibility, and may be
+  removed or changed in future versions.
 
-    local lumA = GetLuminance(foreground)
-    local lumB = GetLuminance(background)
+  :::
 
-    return (max(lumA, lumB) + .05) / (min(lumA, lumB) + .05)
-end
+  @param foreground Color3 -- The foreground colour.
+  @param background Color3 -- The background colour.
+  @return number -- The contrast ratio [0-21].
+]=]
+return module

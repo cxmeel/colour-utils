@@ -1,0 +1,10 @@
+title = "ColourUtils"
+gitSourceBranch = "default"
+changelog = true
+
+classOrder = ["ColourUtils"]
+
+[[navbar.items]]
+label = "Itch.io"
+href = "https://csqrl.itch.io/colour-utils"
+position = "right"

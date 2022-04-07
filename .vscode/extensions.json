@@ -3,6 +3,8 @@
     "kampfkarren.selene-vscode",
     "nightrains.robloxlsp",
     "evaera.vscode-rojo",
-    "redhat.vscode-yaml"
+    "redhat.vscode-yaml",
+    "johnnymorganz.stylua",
+    "bungcip.better-toml"
   ]
 }

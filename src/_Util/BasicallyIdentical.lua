@@ -1,43 +1,56 @@
 local fmt = string.format
 local abs = math.abs
 
+local function StringifyColor3(colour: Color3): string
+	return string.format(
+		'Color3<%.3g, %.3g, %.3g> "#%s"',
+		colour.R * 255,
+		colour.G * 255,
+		colour.B * 255,
+		colour:ToHex()
+	)
+end
+
 return function(base: Color3, compare: Color3, distance: number?): boolean
-  local distance = type(distance) == "number" and distance or .001
+	distance = if type(distance) == "number" then distance else 0.005
 
-  local distRed = abs(base.R - compare.R)
-  local distGreen = abs(base.G - compare.G)
-  local distBlue = abs(base.B - compare.B)
+	assert(typeof(base) == "Color3", '"Base" is not a Color3')
+	assert(typeof(compare) == "Color3", '"Compare" is not a Color3')
 
-  local identical = distRed <= distance and distGreen <= distance and distBlue <= distance
+	local distRed = abs(base.R - compare.R)
+	local distGreen = abs(base.G - compare.G)
+	local distBlue = abs(base.B - compare.B)
 
-  if not identical then
-    local problems = {}
+	local identical = distRed <= distance and distGreen <= distance and distBlue <= distance
 
-    if distRed > distance then
-      table.insert(problems, fmt("R was out by %s", tostring(abs(distance - distRed))))
-    end
+	if not identical then
+		local problems = {}
 
-    if distGreen > distance then
-      table.insert(problems, fmt("G was out by %s", tostring(abs(distance - distGreen))))
-    end
+		if distRed > distance then
+			table.insert(problems, fmt("R was out by %.3g", tostring(abs(distance - distRed))))
+		end
 
-    if distBlue > distance then
-      table.insert(problems, fmt("B was out by %s", tostring(abs(distance - distBlue))))
-    end
+		if distGreen > distance then
+			table.insert(problems, fmt("G was out by %.3g", tostring(abs(distance - distGreen))))
+		end
 
-    error(
-      fmt(
-        "Expected %q (%s) to be within %s, got %q (%s) instead; %s",
-        tostring(base),
-        typeof(base),
-        tostring(distance),
-        tostring(compare),
-        typeof(compare),
-        table.concat(problems, ", ")
-      ),
-      2
-    )
-  end
+		if distBlue > distance then
+			table.insert(problems, fmt("B was out by %.3g", tostring(abs(distance - distBlue))))
+		end
 
-  return identical
+		error(
+			fmt(
+				"Expected %s (%s) to be within %s, got %s (%s) instead; %s",
+				StringifyColor3(base),
+				typeof(base),
+				tostring(distance),
+				StringifyColor3(compare),
+				typeof(compare),
+				table.concat(problems, ", ")
+			),
+			2
+		)
+	end
+
+	return identical
 end

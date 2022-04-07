@@ -50,26 +50,9 @@ declare namespace ColourUtils {
    */
   function GetPerceivedBrightness(colour: Color3): number
 
-  /**
-   * Calculates the contrast ratio between two colours, using the formula provided by WCAG. The result is a number in the range of 0-21
-   * @param {Color3} foreground - A Color3 representing the foreground
-   * @param {Color3} background - A Color3 representing the background
-   * @returns {number}
-   */
-  function GetContrastRatio(foreground: Color3, background: Color3): number
-
-  /**
-   *
-   * @param {Color3} foreground - A Color3 representing the foreground
-   * @param {Color3} background - A Color3 representing the background
-   * @param {number} ratio - The contrast ratio to use, if not provided a default ratio of 4.5 will be used
-   * @returns {Color3}
-   */
-  function GetContrastingColour(
-    foreground: Color3,
-    background: Color3,
-    ratio?: number
-  ): Color3
+  export const GetContrastRatio: typeof WCAG.GetContrastRatio
+  export const GetContrastingColour: typeof WCAG.GetContrastingColour
+  export const GetContrastingColor: typeof GetContrastingColour
 
   /**
    * Invert a colour
@@ -130,6 +113,59 @@ declare namespace ColourUtils {
      * @returns {number}
      */
     function toInt(colour: Color3): number
+  }
+
+  namespace APCA {
+    /**
+     * Calculates the contrast ratio between two colours. The result should be a number between roughly -100 and 100. See {@link https://www.myndex.com/APCA/#general-guidelines-on-levels Myndex's General Guidelines} for more information.
+     * @see https://www.myndex.com/APCA/#general-guidelines-on-levels
+     * @param {Color3} foreground - A Color3 representing the foreground
+     * @param {Color3} background - A Color3 representing the background
+     * @returns {number}
+     */
+    function GetContrastRatio(foreground: Color3, background: Color3): number
+  }
+  namespace Blind {
+    type Enums = {
+      Blind: {
+        Trichromacy: 0
+        Protanopia: 1
+        Protanomaly: 2
+        Deuteranopia: 3
+        Deuteranomaly: 4
+        Tritanopia: 5
+        Tritanomaly: 6
+        Achromatopsia: 7
+        Achromatomaly: 8
+
+        None: 0
+        LowRed: 2
+        LowGreen: 4
+        LowBlue: 6
+        LowColour: 8
+        NoRed: 1
+        NoGreen: 3
+        NoBlue: 5
+        NoColour: 7
+      }
+      Group: {
+        Trichroma: 0
+        Protan: 1
+        Deutan: 2
+        Tritan: 3
+        Achroma: 4
+      }
+    }
+
+    export const Enum: Enums
+
+    /**
+     * Simulate colour blindness on a Color3
+     * @param {Color3} colour- The Color3 to simulate colour blindness on
+     * @param {number} blinder - The type of colour blindness to simulate
+     * @returns {Color3} A resulting Color3 from the simulation
+     */
+    function Simulate(colour: Color3, blinder: number): Color3
   }
 
   namespace Blend {
@@ -224,6 +260,29 @@ declare namespace ColourUtils {
      * @returns {Color3} A Color3 matching the most "vibrant" colour
      */
     function Vibrant(swatches: Color3[], options?: VibrantOptions): Color3
+  }
+
+  namespace WCAG {
+    /**
+     * Calculates the contrast ratio between two colours, using the formula provided by WCAG. The result is a number in the range of 0-21
+     * @param {Color3} foreground - A Color3 representing the foreground
+     * @param {Color3} background - A Color3 representing the background
+     * @returns {number}
+     */
+    function GetContrastRatio(foreground: Color3, background: Color3): number
+
+    /**
+     *
+     * @param {Color3} foreground - A Color3 representing the foreground
+     * @param {Color3} background - A Color3 representing the background
+     * @param {number} ratio - The contrast ratio to use, if not provided a default ratio of 4.5 will be used
+     * @returns {Color3}
+     */
+    function GetContrastingColour(
+      foreground: Color3,
+      background: Color3,
+      ratio?: number
+    ): Color3
   }
 }
 

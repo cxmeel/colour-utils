@@ -1,3 +1,6 @@
+--[=[
+	@class ColourUtils
+]=]
 local module = {
 	-- Methods --
 	Darken = require(script.Darken),
@@ -13,10 +16,13 @@ local module = {
 	Rotate = require(script.Rotate),
 
 	-- Submodules --
+	APCA = require(script.APCA),
 	Blend = require(script.Blend),
+	Blind = require(script.Blind),
 	Hex = require(script.Hex),
 	Int = require(script.Int),
 	Palette = require(script.Palette),
+	WCAG = require(script.WCAG),
 }
 
 module.Emphasize = module.Emphasise
