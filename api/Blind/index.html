@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Docusaurus v2.0.0-beta.9">
+<title data-react-helmet="true">Blind | ColourUtils</title><meta data-react-helmet="true" property="og:title" content="Blind | ColourUtils"><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" property="og:url" content="https://csqrl.github.io/colour-utils/api/Blind"><meta data-react-helmet="true" name="docusaurus_locale" content="en"><meta data-react-helmet="true" name="docusaurus_tag" content="default"><link data-react-helmet="true" rel="canonical" href="https://csqrl.github.io/colour-utils/api/Blind"><link data-react-helmet="true" rel="alternate" href="https://csqrl.github.io/colour-utils/api/Blind" hreflang="en"><link data-react-helmet="true" rel="alternate" href="https://csqrl.github.io/colour-utils/api/Blind" hreflang="x-default"><link rel="stylesheet" href="/colour-utils/assets/css/styles.06f234af.css">
+<link rel="preload" href="/colour-utils/assets/js/runtime~main.adb543cb.js" as="script">
+<link rel="preload" href="/colour-utils/assets/js/main.d8d34e15.js" as="script">
+</head>
+<body>
+<script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
+<div><a href="#" class="skipToContent_1oUP">Skip to main content</a></div><nav class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Navigation bar toggle" class="navbar__toggle clean-btn" type="button" tabindex="0"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/colour-utils/"><b class="navbar__title">ColourUtils</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/colour-utils/api/">API</a><a class="navbar__item navbar__link" href="/colour-utils/changelog">Changelog</a></div><div class="navbar__items navbar__items--right"><a href="https://csqrl.itch.io/colour-utils" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link"><span>Itch.io<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_3J9K"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></span></a><a href="https://github.com/csqrl/colour-utils" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link"><span>GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_3J9K"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></span></a><div class="toggle_71bT toggle_3Zt9 toggleDisabled_3cF-"><div class="toggleTrack_32Fl" role="button" tabindex="-1"><div class="toggleTrackCheck_3lV7"><span class="toggleIcon_O4iE">🌜</span></div><div class="toggleTrackX_S2yS"><span class="toggleIcon_O4iE">🌞</span></div><div class="toggleTrackThumb_xI_Z"></div></div><input type="checkbox" class="toggleScreenReader_28Tw" aria-label="Switch between dark and light mode"></div><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input type="search" id="search_input_react" placeholder="Press S to Search..." aria-label="Search" class="navbar__search-input search-bar"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div class="main-wrapper docPageContainer_2Kz0"><div class="docPage_1bdk"><div class="docSidebarContainer_1ykS"><div class="sidebar_15mo"><nav class="menu thin-scrollbar menu_Bmed"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/colour-utils/api/ColourUtils">​Colour​Utils</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/colour-utils/api/APCA">​A​P​C​A</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/colour-utils/api/Blend">​Blend</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/colour-utils/api/Blind">​Blind</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/colour-utils/api/Hex">​Hex</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/colour-utils/api/Int">​Int</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/colour-utils/api/Palette">​Palette</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/colour-utils/api/WCAG">​W​C​A​G</a></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_1CGd"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_3E-R"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div><main class="docMainContainer_28N5"><div class="container padding-vert--lg"><div class="row"><div class="col docItemCol_3WPG"><div class="docItemContainer_3XDu"><article><div class="member_qHIL markdown"><div class="tocCollapsible_1PrD theme-doc-toc-mobile tocMobile_3ryM"><button type="button" class="clean-btn tocCollapsibleButton_2O1e">On this page</button></div><header><h1 class="docTitle_1ddc" style="text-decoration:none"><span style="display:inline-block">Blind</span></h1><div class="luaClassTags_2Zrs"></div><div></div></header><h2 class="anchor anchorWithStickyNavbar_31ik" id="types">Types<a aria-hidden="true" class="hash-link" href="#types" title="Direct link to heading">​</a></h2><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="Enums"><code style="text-decoration:none">Enums</code><a aria-hidden="true" class="hash-link" href="#Enums" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/csqrl/colour-utils/blob/default/src/Blind/Enum.lua#L7"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code class="purple__nFc">interface</code> <code>Enums<!-- --> <!-- -->{</code><div class="inset_2cJr"><div><code>Blind<!-- -->: </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/colour-utils/api/Blind#Blind">Blind</a></code><span class="inlineDescription_17uy">-- <span>
+<p>Types of colour blindness.</p>
+</span></span></div><div><code>Group<!-- -->: </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/colour-utils/api/Blind#Group">Group</a></code><span class="inlineDescription_17uy">-- <span>
+<p>Colour blindness groups.</p>
+</span></span></div></div><code>}</code></div><div></div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="Blind"><code style="text-decoration:none">Blind</code><a aria-hidden="true" class="hash-link" href="#Blind" title="Direct link to heading">​</a></h3><span class="docTag_3qMS" style="border-color:#dc0073;color:#dc0073">Enum</span><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/csqrl/colour-utils/blob/default/src/Blind/Enum.lua#L35"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code class="purple__nFc">interface</code> <code>Blind<!-- --> <!-- -->{</code><div class="inset_2cJr"><div><code>Trichromacy<!-- -->: </code><code class="blue_2Afy">0</code><span class="inlineDescription_17uy">-- <span>
+<p>No colour blindness.</p>
+</span></span></div><div><code>Protanopia<!-- -->: </code><code class="blue_2Afy">1</code><span class="inlineDescription_17uy">-- <span>
+<p>Red blind.</p>
+</span></span></div><div><code>Protanomaly<!-- -->: </code><code class="blue_2Afy">2</code><span class="inlineDescription_17uy">-- <span>
+<p>Red deficient.</p>
+</span></span></div><div><code>Deuteranopia<!-- -->: </code><code class="blue_2Afy">3</code><span class="inlineDescription_17uy">-- <span>
+<p>Green blind.</p>
+</span></span></div><div><code>Deuteranomaly<!-- -->: </code><code class="blue_2Afy">4</code><span class="inlineDescription_17uy">-- <span>
+<p>Green deficient.</p>
+</span></span></div><div><code>Tritanopia<!-- -->: </code><code class="blue_2Afy">5</code><span class="inlineDescription_17uy">-- <span>
+<p>Blue blind.</p>
+</span></span></div><div><code>Tritanomaly<!-- -->: </code><code class="blue_2Afy">6</code><span class="inlineDescription_17uy">-- <span>
+<p>Blue deficient.</p>
+</span></span></div><div><code>Achromatopsia<!-- -->: </code><code class="blue_2Afy">7</code><span class="inlineDescription_17uy">-- <span>
+<p>All colours are absent.</p>
+</span></span></div><div><code>Achromatomaly<!-- -->: </code><code class="blue_2Afy">8</code><span class="inlineDescription_17uy">-- <span>
+<p>All colours are deficient.</p>
+</span></span></div><div><code>None<!-- -->: </code><code class="blue_2Afy">0</code><span class="inlineDescription_17uy">-- <span>
+<p>Trichromacy (no colour blindness).</p>
+</span></span></div><div><code>NoRed<!-- -->: </code><code class="blue_2Afy">1</code><span class="inlineDescription_17uy">-- <span>
+<p>Protanopia (red blind).</p>
+</span></span></div><div><code>LowRed<!-- -->: </code><code class="blue_2Afy">2</code><span class="inlineDescription_17uy">-- <span>
+<p>Protanomaly (red deficient).</p>
+</span></span></div><div><code>NoGreen<!-- -->: </code><code class="blue_2Afy">3</code><span class="inlineDescription_17uy">-- <span>
+<p>Deuteranopia (green blind).</p>
+</span></span></div><div><code>LowGreen<!-- -->: </code><code class="blue_2Afy">4</code><span class="inlineDescription_17uy">-- <span>
+<p>Deuteranomaly (green deficient).</p>
+</span></span></div><div><code>NoBlue<!-- -->: </code><code class="blue_2Afy">5</code><span class="inlineDescription_17uy">-- <span>
+<p>Tritanopia (blue blind).</p>
+</span></span></div><div><code>LowBlue<!-- -->: </code><code class="blue_2Afy">6</code><span class="inlineDescription_17uy">-- <span>
+<p>Tritanomaly (blue deficient).</p>
+</span></span></div><div><code>NoColour<!-- -->: </code><code class="blue_2Afy">7</code><span class="inlineDescription_17uy">-- <span>
+<p>Achromatopsia (totally colour blind).</p>
+</span></span></div><div><code>LowColour<!-- -->: </code><code class="blue_2Afy">8</code><span class="inlineDescription_17uy">-- <span>
+<p>Achromatomaly (colour deficient).</p>
+</span></span></div></div><code>}</code></div><div>
+<p>
+  The Blind enum is used to represent the different types of colour blindness. It
+  features a number of aliases for non-scientists.
+</p>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="Group"><code style="text-decoration:none">Group</code><a aria-hidden="true" class="hash-link" href="#Group" title="Direct link to heading">​</a></h3><span class="docTag_3qMS" style="border-color:#dc0073;color:#dc0073">Enum</span><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/csqrl/colour-utils/blob/default/src/Blind/Enum.lua#L51"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code class="purple__nFc">interface</code> <code>Group<!-- --> <!-- -->{</code><div class="inset_2cJr"><div><code>Trichroma<!-- -->: </code><code class="blue_2Afy">0</code><span class="inlineDescription_17uy">-- <span>
+<p>Trichromacy (no colour blindness).</p>
+</span></span></div><div><code>Protan<!-- -->: </code><code class="blue_2Afy">1</code><span class="inlineDescription_17uy">-- <span>
+<p>Protanopia/Protanomaly.</p>
+</span></span></div><div><code>Deutan<!-- -->: </code><code class="blue_2Afy">2</code><span class="inlineDescription_17uy">-- <span>
+<p>Deuteranopia/Deuteranomaly.</p>
+</span></span></div><div><code>Tritan<!-- -->: </code><code class="blue_2Afy">3</code><span class="inlineDescription_17uy">-- <span>
+<p>Tritanopia/Tritanomaly.</p>
+</span></span></div><div><code>Achroma<!-- -->: </code><code class="blue_2Afy">4</code><span class="inlineDescription_17uy">-- <span>
+<p>Achromatopsia/Achromatomaly.</p>
+</span></span></div></div><code>}</code></div><div>
+<p>
+  The Group enum is used to represent the different groups of colour blindness.
+  It is used internally by the <a href="#Simulate">Simulate</a> method to determine which
+  colour blindness simulation to use. It is unlikely that you will need to
+  use this enum.
+</p>
+</div><h2 class="anchor anchorWithStickyNavbar_31ik" id="functions">Functions<a aria-hidden="true" class="hash-link" href="#functions" title="Direct link to heading">​</a></h2><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="Simulate"><code style="text-decoration:none">Simulate</code><a aria-hidden="true" class="hash-link" href="#Simulate" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/csqrl/colour-utils/blob/default/src/Blind/Simulate/init.lua#L72"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Blind<!-- -->.</code><code class="green_3LnD">Simulate</code><code>(</code><div class="inset_2cJr"><div><code>colour<!-- -->: </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Color3" target="_blank" rel="noopener noreferrer">Color3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code><span class="inlineDescription_17uy">-- <span>
+<p>The colour to simulate.</p>
+</span></span></div><div><code>blinder<!-- -->: </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/colour-utils/api/Blind#Blind">Blind</a></code><span class="inlineDescription_17uy">-- <span>
+<p>The blinder to simulate with.</p>
+</span></span></div></div><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Color3" target="_blank" rel="noopener noreferrer">Color3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_17uy">-- <span>
+<p>The simulated colour.</p>
+</span></span></div><div></div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
+    &quot;functions&quot;: [
+        {
+            &quot;name&quot;: &quot;Simulate&quot;,
+            &quot;desc&quot;: &quot;&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;colour&quot;,
+                    &quot;desc&quot;: &quot;The colour to simulate.&quot;,
+                    &quot;lua_type&quot;: &quot;Color3&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;blinder&quot;,
+                    &quot;desc&quot;: &quot;The blinder to simulate with.&quot;,
+                    &quot;lua_type&quot;: &quot;Blind&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;The simulated colour.&quot;,
+                    &quot;lua_type&quot;: &quot;Color3&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 72,
+                &quot;path&quot;: &quot;src/Blind/Simulate/init.lua&quot;
+            }
+        }
+    ],
+    &quot;properties&quot;: [],
+    &quot;types&quot;: [
+        {
+            &quot;name&quot;: &quot;Enums&quot;,
+            &quot;desc&quot;: &quot;&quot;,
+            &quot;fields&quot;: [
+                {
+                    &quot;name&quot;: &quot;Blind&quot;,
+                    &quot;lua_type&quot;: &quot;Blind&quot;,
+                    &quot;desc&quot;: &quot;Types of colour blindness.&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Group&quot;,
+                    &quot;lua_type&quot;: &quot;Group&quot;,
+                    &quot;desc&quot;: &quot;Colour blindness groups.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 7,
+                &quot;path&quot;: &quot;src/Blind/Enum.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Blind&quot;,
+            &quot;desc&quot;: &quot;The Blind enum is used to represent the different types of colour blindness. It\nfeatures a number of aliases for non-scientists.&quot;,
+            &quot;fields&quot;: [
+                {
+                    &quot;name&quot;: &quot;Trichromacy&quot;,
+                    &quot;lua_type&quot;: &quot;0&quot;,
+                    &quot;desc&quot;: &quot;No colour blindness.&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Protanopia&quot;,
+                    &quot;lua_type&quot;: &quot;1&quot;,
+                    &quot;desc&quot;: &quot;Red blind.&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Protanomaly&quot;,
+                    &quot;lua_type&quot;: &quot;2&quot;,
+                    &quot;desc&quot;: &quot;Red deficient.&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Deuteranopia&quot;,
+                    &quot;lua_type&quot;: &quot;3&quot;,
+                    &quot;desc&quot;: &quot;Green blind.&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Deuteranomaly&quot;,
+                    &quot;lua_type&quot;: &quot;4&quot;,
+                    &quot;desc&quot;: &quot;Green deficient.&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Tritanopia&quot;,
+                    &quot;lua_type&quot;: &quot;5&quot;,
+                    &quot;desc&quot;: &quot;Blue blind.&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Tritanomaly&quot;,
+                    &quot;lua_type&quot;: &quot;6&quot;,
+                    &quot;desc&quot;: &quot;Blue deficient.&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Achromatopsia&quot;,
+                    &quot;lua_type&quot;: &quot;7&quot;,
+                    &quot;desc&quot;: &quot;All colours are absent.&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Achromatomaly&quot;,
+                    &quot;lua_type&quot;: &quot;8&quot;,
+                    &quot;desc&quot;: &quot;All colours are deficient.&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;None&quot;,
+                    &quot;lua_type&quot;: &quot;0&quot;,
+                    &quot;desc&quot;: &quot;Trichromacy (no colour blindness).&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;NoRed&quot;,
+                    &quot;lua_type&quot;: &quot;1&quot;,
+                    &quot;desc&quot;: &quot;Protanopia (red blind).&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;LowRed&quot;,
+                    &quot;lua_type&quot;: &quot;2&quot;,
+                    &quot;desc&quot;: &quot;Protanomaly (red deficient).&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;NoGreen&quot;,
+                    &quot;lua_type&quot;: &quot;3&quot;,
+                    &quot;desc&quot;: &quot;Deuteranopia (green blind).&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;LowGreen&quot;,
+                    &quot;lua_type&quot;: &quot;4&quot;,
+                    &quot;desc&quot;: &quot;Deuteranomaly (green deficient).&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;NoBlue&quot;,
+                    &quot;lua_type&quot;: &quot;5&quot;,
+                    &quot;desc&quot;: &quot;Tritanopia (blue blind).&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;LowBlue&quot;,
+                    &quot;lua_type&quot;: &quot;6&quot;,
+                    &quot;desc&quot;: &quot;Tritanomaly (blue deficient).&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;NoColour&quot;,
+                    &quot;lua_type&quot;: &quot;7&quot;,
+                    &quot;desc&quot;: &quot;Achromatopsia (totally colour blind).&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;LowColour&quot;,
+                    &quot;lua_type&quot;: &quot;8&quot;,
+                    &quot;desc&quot;: &quot;Achromatomaly (colour deficient).&quot;
+                }
+            ],
+            &quot;tags&quot;: [
+                &quot;Enum&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 35,
+                &quot;path&quot;: &quot;src/Blind/Enum.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Group&quot;,
+            &quot;desc&quot;: &quot;The Group enum is used to represent the different groups of colour blindness.\nIt is used internally by the [Simulate](#Simulate) method to determine which\ncolour blindness simulation to use. It is unlikely that you will need to\nuse this enum.&quot;,
+            &quot;fields&quot;: [
+                {
+                    &quot;name&quot;: &quot;Trichroma&quot;,
+                    &quot;lua_type&quot;: &quot;0&quot;,
+                    &quot;desc&quot;: &quot;Trichromacy (no colour blindness).&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Protan&quot;,
+                    &quot;lua_type&quot;: &quot;1&quot;,
+                    &quot;desc&quot;: &quot;Protanopia/Protanomaly.&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Deutan&quot;,
+                    &quot;lua_type&quot;: &quot;2&quot;,
+                    &quot;desc&quot;: &quot;Deuteranopia/Deuteranomaly.&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Tritan&quot;,
+                    &quot;lua_type&quot;: &quot;3&quot;,
+                    &quot;desc&quot;: &quot;Tritanopia/Tritanomaly.&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Achroma&quot;,
+                    &quot;lua_type&quot;: &quot;4&quot;,
+                    &quot;desc&quot;: &quot;Achromatopsia/Achromatomaly.&quot;
+                }
+            ],
+            &quot;tags&quot;: [
+                &quot;Enum&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 51,
+                &quot;path&quot;: &quot;src/Blind/Enum.lua&quot;
+            }
+        }
+    ],
+    &quot;name&quot;: &quot;Blind&quot;,
+    &quot;desc&quot;: &quot;&quot;,
+    &quot;source&quot;: {
+        &quot;line&quot;: 4,
+        &quot;path&quot;: &quot;src/Blind/init.lua&quot;
+    }
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_35-E thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a><ul><li><a href="#Blind" class="table-of-contents__link toc-highlight">Blind</a></li><li><a href="#Enums" class="table-of-contents__link toc-highlight">Enums</a></li><li><a href="#Group" class="table-of-contents__link toc-highlight">Group</a></li></ul></li><li><a href="#properties" class="table-of-contents__link toc-highlight">Properties</a></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#Simulate" class="table-of-contents__link toc-highlight">.Simulate</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2022 csqrl. Built with Moonwave and Docusaurus.</div></div></div></footer></div>
+<script src="/colour-utils/assets/js/runtime~main.adb543cb.js"></script>
+<script src="/colour-utils/assets/js/main.d8d34e15.js"></script>
+</body>
+</html>

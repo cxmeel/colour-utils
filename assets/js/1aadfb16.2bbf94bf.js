@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[24],{97868:function(s){s.exports=JSON.parse('{"sourceUrl":"https://github.com/csqrl/colour-utils/blob/default","baseUrl":"/colour-utils/","classOrder":["ColourUtils"],"apiCategories":[]}')}}]);
