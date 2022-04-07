@@ -54,6 +54,10 @@ jobs:
       - name: Install Dependencies
         run: wally install
 
+      - name: Remove Tests
+        run: |
+          find . -name "*.spec.lua" -delete
+
       - name: Build Project
         run: rojo build default.project.json -o $RELEASE_FILENAME
 

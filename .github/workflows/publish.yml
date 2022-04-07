@@ -55,6 +55,10 @@ jobs:
           npm install
           wally install
 
+      - name: Remove Tests
+        run: |
+          find . -name "*.spec.lua" -delete
+
       - name: Publish to Roblox
         if: ${{ github.event.release.prerelease == false }}
         shell: bash
