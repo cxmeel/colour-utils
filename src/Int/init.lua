@@ -7,7 +7,7 @@ local lshift = bit32.lshift
 local band = bit32.band
 
 --[=[
-	@function FromInt
+	@function fromInt
 	@within Int
 
 	@param int number -- The integer to convert.
@@ -25,7 +25,7 @@ local function FromInt(int: number): Color3
 end
 
 --[=[
-	@function ToInt
+	@function toInt
 	@within Int
 
 	@param colour Color3 -- The colour to convert.

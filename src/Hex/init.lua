@@ -11,7 +11,7 @@ local HEX_EXCLUDE_PATTERN = "[^A-Fa-f0-9]"
 local HEX_FORMAT_PATTERN = "%.2x%.2x%.2x"
 
 --[=[
-	@function FromHex
+	@function fromHex
 	@within Hex
 
 	:::tip
@@ -51,7 +51,7 @@ local function FromHex(hex: string): Color3
 end
 
 --[=[
-	@function ToHex
+	@function toHex
 	@within Hex
 
 	:::note
