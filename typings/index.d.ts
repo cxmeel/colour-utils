@@ -13,6 +13,12 @@ declare namespace ColourUtils {
     L: number
   }
 
+  type LAB = {
+    L: number
+    A: number
+    B: number
+  }
+
   /**
    * Darkens a colour
    * @param {Color3} colour - The Color3 to darken
@@ -135,6 +141,22 @@ declare namespace ColourUtils {
      * @returns {Color3}
      */
     function fromHSL(hsl: HSL): Color3
+  }
+
+  namespace LAB {
+    /**
+     * Converts a Color3 into a LAB table
+     * @param {Color3} colour - A Color3 to convert into a LAB table
+     * @returns {LAB}
+     */
+    function toLAB(colour: Color3): LAB
+
+    /**
+     * Converts a LAB table into a Color3
+     * @param {LAB} lab - A LAB table to convert into a Color3
+     * @returns {Color3}
+     */
+    function fromLAB(lab: LAB): Color3
   }
 
   namespace APCA {
