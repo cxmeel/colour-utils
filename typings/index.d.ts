@@ -7,6 +7,12 @@ declare namespace ColourUtils {
     TargetValue: number
   }
 
+  type HSL = {
+    H: number
+    S: number
+    L: number
+  }
+
   /**
    * Darkens a colour
    * @param {Color3} colour - The Color3 to darken
@@ -113,6 +119,22 @@ declare namespace ColourUtils {
      * @returns {number}
      */
     function toInt(colour: Color3): number
+  }
+
+  namespace HSL {
+    /**
+     * Converts a Color3 into a HSL table
+     * @param {Color3} colour - A Color3 to convert into a HSL table
+     * @returns {HSL}
+     */
+    function toHSL(colour: Color3): HSL
+
+    /**
+     * Converts a HSL table into a Color3
+     * @param {HSL} hsl - A HSL table to convert into a Color3
+     * @returns {Color3}
+     */
+    function fromHSL(hsl: HSL): Color3
   }
 
   namespace APCA {
