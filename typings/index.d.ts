@@ -19,6 +19,12 @@ declare namespace ColourUtils {
     B: number
   }
 
+  type LCH = {
+    L: number
+    C: number
+    H: number
+  }
+
   /**
    * Darkens a colour
    * @param {Color3} colour - The Color3 to darken
@@ -157,6 +163,22 @@ declare namespace ColourUtils {
      * @returns {Color3}
      */
     function fromLAB(lab: LAB): Color3
+  }
+
+  namespace LCH {
+    /**
+     * Converts a Color3 into a LCH table
+     * @param {Color3}
+     * @returns {LCH}
+     */
+    function toLCH(colour: Color3): LCH
+
+    /**
+     * Converts a LCH table into a Color3
+     * @param {LCH}
+     * @returns {Color3}
+     */
+    function fromLCH(lch: LCH): Color3
   }
 
   namespace APCA {
