@@ -7,6 +7,37 @@ declare namespace ColourUtils {
     TargetValue: number
   }
 
+  type HSL = {
+    H: number
+    S: number
+    L: number
+  }
+
+  type LAB = {
+    L: number
+    A: number
+    B: number
+  }
+
+  type LCH = {
+    L: number
+    C: number
+    H: number
+  }
+
+  type TailwindPalette = {
+    [50]: Color3
+    [100]: Color3
+    [200]: Color3
+    [300]: Color3
+    [400]: Color3
+    [500]: Color3
+    [600]: Color3
+    [700]: Color3
+    [800]: Color3
+    [900]: Color3
+  }
+
   /**
    * Darkens a colour
    * @param {Color3} colour - The Color3 to darken
@@ -113,6 +144,54 @@ declare namespace ColourUtils {
      * @returns {number}
      */
     function toInt(colour: Color3): number
+  }
+
+  namespace HSL {
+    /**
+     * Converts a Color3 into a HSL table
+     * @param {Color3} colour - A Color3 to convert into a HSL table
+     * @returns {HSL}
+     */
+    function toHSL(colour: Color3): HSL
+
+    /**
+     * Converts a HSL table into a Color3
+     * @param {HSL} hsl - A HSL table to convert into a Color3
+     * @returns {Color3}
+     */
+    function fromHSL(hsl: HSL): Color3
+  }
+
+  namespace LAB {
+    /**
+     * Converts a Color3 into a LAB table
+     * @param {Color3} colour - A Color3 to convert into a LAB table
+     * @returns {LAB}
+     */
+    function toLAB(colour: Color3): LAB
+
+    /**
+     * Converts a LAB table into a Color3
+     * @param {LAB} lab - A LAB table to convert into a Color3
+     * @returns {Color3}
+     */
+    function fromLAB(lab: LAB): Color3
+  }
+
+  namespace LCH {
+    /**
+     * Converts a Color3 into a LCH table
+     * @param {Color3}
+     * @returns {LCH}
+     */
+    function toLCH(colour: Color3): LCH
+
+    /**
+     * Converts a LCH table into a Color3
+     * @param {LCH}
+     * @returns {Color3}
+     */
+    function fromLCH(lch: LCH): Color3
   }
 
   namespace APCA {
@@ -228,9 +307,10 @@ declare namespace ColourUtils {
     /**
      *
      * @param {Color3} base - The Color3 to generate palette from
+     * @param {number} swatches - The number of swatches to generate
      * @returns {Color3[]} An array of Color3 values
      */
-    function Monochromatic(base: Color3): Color3[]
+    function Monochromatic(base: Color3, swatches?: number): Color3[]
 
     /**
      *
@@ -260,6 +340,14 @@ declare namespace ColourUtils {
      * @returns {Color3} A Color3 matching the most "vibrant" colour
      */
     function Vibrant(swatches: Color3[], options?: VibrantOptions): Color3
+
+    /**
+     * Generates a monochromatic palette from a base colour, similar to the
+     * palettes found in Tailwind CSS
+     * @param {Color3} base - The Color3 to generate palette from
+     * @returns {TailwindPalette} An object containing Color3 values
+     */
+    function Tailwind(base: Color3): TailwindPalette
   }
 
   namespace WCAG {
