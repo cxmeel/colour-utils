@@ -12,4 +12,24 @@ return function()
 
 		expect(BasicallyIdentical(TEST_RESULT, colour)).to.equal(true)
 	end)
+
+	it("throws if argument is not a Color3", function()
+		expect(function()
+			Desaturate(nil, TEST_AMOUNT)
+		end).to.throw()
+
+		expect(function()
+			Desaturate(true, TEST_AMOUNT)
+		end).to.throw()
+	end)
+
+	it("throws if amount is not a number", function()
+		expect(function()
+			Desaturate(TEST_BASE, nil)
+		end).to.throw()
+
+		expect(function()
+			Desaturate(TEST_BASE, true)
+		end).to.throw()
+	end)
 end
