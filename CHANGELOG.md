@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.3.0]
+
+### Added
+
+- Implemented colour space conversions.
+  - `HSL` (`.fromHSL, .toHSL`).
+  - `LAB` (`.fromLAB, .toLAB`) _(:test_tube: experimental)_.
+  - `LCH` (`.fromLCH, .toLCH`) _(:test_tube: experimental)_.
+- Saturation methods to either saturate or desaturate a colour.
+- Tailwind CSS-style palette generator - Generates 10 swatches, given a base colour, and returns a `TailwindPalette` object (see the docs for more details).
+
+### Changed
+
+- Updated the docs for Hex and Int. The converter methods were previously documented in PascalCase, but they should have been documented in camelCase.
+- The `Palette.Monochromatic` method now accepts an optional second parameter, `swatches`, which defaults to `3`. This is to allow for more control over the number of swatches generated.
+  - **:warning: Warning:** The behaviour of monochromatic has been changed to allow for more control over the number of swatches generated.
+  - The new behaviour will return `X` amount of swatches, **including** the base colour. The results do not necessarily include a single lighter and darker swatch, and the resulting array is now sorted from darkest to lightest (most vibrant).
+
+###
+
 ## [1.2.0]
 
 ### Added
