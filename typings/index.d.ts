@@ -307,9 +307,10 @@ declare namespace ColourUtils {
     /**
      *
      * @param {Color3} base - The Color3 to generate palette from
+     * @param {number} swatches - The number of swatches to generate
      * @returns {Color3[]} An array of Color3 values
      */
-    function Monochromatic(base: Color3): Color3[]
+    function Monochromatic(base: Color3, swatches?: number): Color3[]
 
     /**
      *

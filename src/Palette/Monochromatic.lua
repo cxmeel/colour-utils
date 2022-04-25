@@ -12,6 +12,7 @@ local sort = table.sort
 	@within Palette
 
 	@param base Color3 -- The base colour.
+	@param swatches number -- The number of swatches to generate.
 	@return {Color3} -- The monochromatic colours.
 ]=]
 return function(base: Color3, swatches: number?): { Color3 }
