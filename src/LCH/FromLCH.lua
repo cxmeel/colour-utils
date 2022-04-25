@@ -25,8 +25,8 @@ end
 	@function fromLCH
 	@within LCH
 
-  @param lch LCH -- The color to convert.
-  @return Color3 -- The converted color.
+	@param lch LCH -- The color to convert.
+	@return Color3 -- The converted color.
 ]=]
 local function FromLCH(lch: CONST.LCH): Color3
 	Assert.typeOf("FromLCH", "lch", "table", lch)
