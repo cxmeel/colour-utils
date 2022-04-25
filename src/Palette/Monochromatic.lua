@@ -1,11 +1,11 @@
-local Types = require(script.Parent.Parent._Util.Types)
 local Assert = require(script.Parent.Parent._Util.Assert)
-local Lighten = require(script.Parent.Parent.Lighten)
-local Darken = require(script.Parent.Parent.Darken)
 
 local assertTypeOf = Assert.prepTypeOf("Monochromatic")
+local assertEvalArg = Assert.prepEvalArg("Monochromatic")
 
-type Array<T> = Types.Array<T>
+local push = table.insert
+local floor = math.floor
+local sort = table.sort
 
 --[=[
 	@function Monochromatic
@@ -14,11 +14,28 @@ type Array<T> = Types.Array<T>
 	@param base Color3 -- The base colour.
 	@return {Color3} -- The monochromatic colours.
 ]=]
-return function(base: Color3): Array<Color3>
-	assertTypeOf("base", "Color3", base)
+return function(base: Color3, swatches: number?): { Color3 }
+	swatches = swatches or 3
 
-	return {
-		Lighten(base, 0.5),
-		Darken(base, 0.5),
-	}
+	assertTypeOf("base", "Color3", base)
+	assertTypeOf("swatches", "number", swatches)
+
+	swatches = floor(swatches)
+	assertEvalArg("swatches", "be greater than 0", swatches > 0, swatches)
+
+	local h, s, v = base:ToHSV()
+	local increment = 1 / swatches
+
+	local colours = {}
+
+	for _ = 1, swatches do
+		push(colours, Color3.fromHSV(h, s, v))
+		v = (v + increment) % 1
+	end
+
+	sort(colours, function(a, b)
+		return select(3, a:ToHSV()) < select(3, b:ToHSV())
+	end)
+
+	return colours
 end
