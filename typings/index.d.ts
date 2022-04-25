@@ -25,6 +25,19 @@ declare namespace ColourUtils {
     H: number
   }
 
+  type TailwindPalette = {
+    [50]: Color3
+    [100]: Color3
+    [200]: Color3
+    [300]: Color3
+    [400]: Color3
+    [500]: Color3
+    [600]: Color3
+    [700]: Color3
+    [800]: Color3
+    [900]: Color3
+  }
+
   /**
    * Darkens a colour
    * @param {Color3} colour - The Color3 to darken
@@ -326,6 +339,14 @@ declare namespace ColourUtils {
      * @returns {Color3} A Color3 matching the most "vibrant" colour
      */
     function Vibrant(swatches: Color3[], options?: VibrantOptions): Color3
+
+    /**
+     * Generates a monochromatic palette from a base colour, similar to the
+     * palettes found in Tailwind CSS
+     * @param {Color3} base - The Color3 to generate palette from
+     * @returns {TailwindPalette} An object containing Color3 values
+     */
+    function Tailwind(base: Color3): TailwindPalette
   }
 
   namespace WCAG {
