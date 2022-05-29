@@ -35,4 +35,29 @@ return function()
 			expect(BasicallyIdentical(Color3.new(), Hex.fromHex(""))).to.equal(true)
 		end)
 	end)
+
+	describe("fromHexRGBA(...)", function()
+		it("throws if argument is not a string", function()
+			expect(pcall(Hex.fromHexRGBA, true)).to.equal(false)
+		end)
+
+		it("converts an alpha hex code to Color3", function()
+			-- white fg, transparency 50%, black bg
+			expect(BasicallyIdentical(Color3.fromHex("#808080"), Hex.fromHexRGBA("#FFFFFF80"))).to.equal(true)
+
+			-- blue fg, transparency 50%, white bg
+			expect(BasicallyIdentical(Color3.fromHex("#80D1FF"), Hex.fromHexRGBA("#00A2FF80", Color3.new(1, 1, 1)))).to.equal(
+				true
+			)
+
+			-- blue fg, transparency 50%, black bg
+			expect(BasicallyIdentical(Color3.fromHex("#005180"), Hex.fromHexRGBA("#00A2FF80"))).to.equal(true)
+
+			-- blue fg, transparency 0%, black bg
+			expect(BasicallyIdentical(Color3.fromHex("#00A2FF"), Hex.fromHexRGBA("#00A2FF00"))).to.equal(true)
+
+			-- blue fg, transparency 100%, black bg
+			expect(BasicallyIdentical(Color3.new(), Hex.fromHexRGBA("#00A2FFFF"))).to.equal(true)
+		end)
+	end)
 end

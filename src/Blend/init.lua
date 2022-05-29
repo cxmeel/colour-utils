@@ -7,4 +7,5 @@ return {
 	Overlay = require(script.Overlay),
 	Dodge = require(script.Dodge),
 	Burn = require(script.Burn),
+	Transparency = require(script.Transparency),
 }

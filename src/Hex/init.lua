@@ -1,5 +1,6 @@
 local Assert = require(script.Parent._Util.Assert)
 local ClampColour = require(script.Parent._Util.ClampColour)
+local Transparency = require(script.Parent.Blend.Transparency)
 
 local sub = string.sub
 local gsub = string.gsub
@@ -9,6 +10,7 @@ local split = string.split
 
 local HEX_EXCLUDE_PATTERN = "[^A-Fa-f0-9]"
 local HEX_FORMAT_PATTERN = "%.2x%.2x%.2x"
+local BACKGROUND_BASE_COLOUR = Color3.new()
 
 --[=[
 	@function fromHex
@@ -51,6 +53,42 @@ local function FromHex(hex: string): Color3
 end
 
 --[=[
+	@function fromHexRGBA
+	@within Hex
+
+	Creates a Color3 from a hex string with an alpha value. The background
+	doesn't need to be specified, but the resulting Color3 will vary
+	depending on the colour of the background, so it's recommended to
+	specify a background unless `Color3.new()` is what you want.
+
+	If the hex string is less than 8 characters, it will be passed to
+	`fromHex` and the resulting Color3 will be returned without transparency
+	applied.
+
+	Hex strings longer than 8 characters will be truncated to 8 characters
+	will be accepted. If the hex string is longer than 8 characters, the
+	last two characters will be used as the alpha value.
+
+	@param hex string -- The hex string to convert.
+	@param background Color3? -- The background colour (defaults to black).
+	@return Color3 -- The resulting Color3.
+]=]
+local function FromHexRGBA(hex: string, background: Color3?): Color3
+	Assert.typeOf("FromHexRGBA", "hex", "string", hex)
+
+	hex = gsub(hex, HEX_EXCLUDE_PATTERN, "")
+
+	if #hex < 8 then
+		return FromHex(hex)
+	end
+
+	local transparency = 1 - (tonumber(sub(hex, -2), 16) / 255)
+	local colour = FromHex(sub(hex, 1, -3))
+
+	return Transparency(colour, background or BACKGROUND_BASE_COLOUR, transparency)
+end
+
+--[=[
 	@function toHex
 	@within Hex
 
@@ -81,5 +119,6 @@ end
 ]=]
 return {
 	fromHex = FromHex,
+	fromHexRGBA = FromHexRGBA,
 	toHex = ToHex,
 }

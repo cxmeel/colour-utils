@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.1]
+
+- Implemented transparency blending:
+  - This returns a new Color3 that acts as if it was overlaid on a background color with a given alpha.
+- Added `Hex.fromHexRGBA`, which converts a hex string with an alpha channel to a Color3.
+
 ## [1.3.0]
 
 ### Added

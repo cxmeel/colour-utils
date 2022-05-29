@@ -116,14 +116,19 @@ declare namespace ColourUtils {
 
   namespace Hex {
     /**
-     * Converts a hex string into a Color3. This method accepts hex strings of any length (but will only respect the first 6 characters; with or without a preceding hash (#)
+     * Converts a hex string into a Color3. This method accepts hex strings of any length (but will only respect the first 6 characters); with or without a preceding hash (#)
      * @param {string} hex - A hex colour string
      * @returns {Color3}
      */
     function fromHex(hex: string): Color3
 
     /**
-     * Converts a Color3 into a hex value. Note that this method does not prepend a hash (#) to the beginning of the string
+     * Converts an RGBA hex string into a Color3. This method accepts hex strings of any length (the last two characters will be treated as the alpha value); with or without a preceding hash (#)
+     * @param colour
+     */
+
+    /**
+     * Converts a Color3 into a hex value. Note that this method does not prepend a hash (#) to the beginning of the string, and the result is always lowercase
      * @param {Color3} colour - A Color3 to convert to hex
      * @returns {string}
      */
@@ -240,7 +245,7 @@ declare namespace ColourUtils {
 
     /**
      * Simulate colour blindness on a Color3
-     * @param {Color3} colour- The Color3 to simulate colour blindness on
+     * @param {Color3} colour - The Color3 to simulate colour blindness on
      * @param {number} blinder - The type of colour blindness to simulate
      * @returns {Color3} A resulting Color3 from the simulation
      */
@@ -250,7 +255,7 @@ declare namespace ColourUtils {
   namespace Blend {
     /**
      * Apply burn blend to two Color3s
-     * @param {Color3} background- The bottom Color3 to apply blend to
+     * @param {Color3} background - The bottom Color3 to apply blend to
      * @param {Color3} foreground - The top Color3 to apply blend to
      * @returns {Color3} A resulting Color3 from applying the blend
      */
@@ -258,7 +263,7 @@ declare namespace ColourUtils {
 
     /**
      * Apply dodge blend to two Color3s
-     * @param {Color3} background- The bottom Color3 to apply blend to
+     * @param {Color3} background - The bottom Color3 to apply blend to
      * @param {Color3} foreground - The top Color3 to apply blend to
      * @returns {Color3} A resulting Color3 from applying the blend
      */
@@ -266,7 +271,7 @@ declare namespace ColourUtils {
 
     /**
      * Apply multiply blend to two Color3s
-     * @param {Color3} background- The bottom Color3 to apply blend to
+     * @param {Color3} background - The bottom Color3 to apply blend to
      * @param {Color3} foreground - The top Color3 to apply blend to
      * @returns {Color3} A resulting Color3 from applying the blend
      */
@@ -274,7 +279,7 @@ declare namespace ColourUtils {
 
     /**
      * Apply overlay blend to two Color3s
-     * @param {Color3} background- The bottom Color3 to apply blend to
+     * @param {Color3} background - The bottom Color3 to apply blend to
      * @param {Color3} foreground - The top Color3 to apply blend to
      * @returns {Color3} A resulting Color3 from applying the blend
      */
@@ -282,11 +287,24 @@ declare namespace ColourUtils {
 
     /**
      * Apply screen blend to two Color3s
-     * @param {Color3} background- The bottom Color3 to apply blend to
+     * @param {Color3} background - The bottom Color3 to apply blend to
      * @param {Color3} foreground - The top Color3 to apply blend to
      * @returns {Color3} A resulting Color3 from applying the blend
      */
     function Screen(background: Color3, foreground: Color3): Color3
+
+    /**
+     * Apply transparency to a Color3, based on the background colour
+     * @param {Color3} background - The bottom Color3 to apply blend to
+     * @param {Color3} foreground - The top Color3 to apply blend to
+     * @param {number} transparency - The transparency to apply (0-1)
+     * @returns {Color3} A resulting Color3 from applying the blend
+     */
+    function Transparency(
+      background: Color3,
+      foreground: Color3,
+      transparency: number
+    ): Color3
   }
 
   namespace Palette {
