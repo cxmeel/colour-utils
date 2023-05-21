@@ -8,4 +8,5 @@ export type LAB = CONST.LAB
 return {
 	fromLAB = require(script.FromLAB),
 	toLAB = require(script.ToLAB),
+	Lerp = require(script.Lerp),
 }
