@@ -1,6 +1,7 @@
 title = "ColorUtils"
 gitSourceBranch = "default"
 changelog = true
+baseUrl = "colour-utils"
 
 classOrder = ["ColorUtils"]
 
