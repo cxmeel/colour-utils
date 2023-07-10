@@ -3,3 +3,5 @@ name = "csqrl/colour-utils"
 version = "1.4.1"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
+exclude = ["**"]
+include = ["src", "src/**", "wally.toml", "wally.lock", "default.project.json"]
