@@ -1,4 +1,4 @@
-local BasicallyIdentical = require(script.Parent.Parent._Util.BasicallyIdentical)
+local BasicallyIdentical = require(script.Parent.Parent.Util.BasicallyIdentical)
 
 return function()
 	local FromLab = require(script.Parent.FromLAB)
@@ -6,7 +6,7 @@ return function()
 	local TEST_COLOR3 = Color3.fromHex("#00a2ff")
 	local TEST_LAB = { L = 64.21, A = -1.67, B = -55.7 }
 
-	it("converts a LAB colour to a Color3", function()
+	it("converts a LAB color to a Color3", function()
 		local color3 = FromLab(TEST_LAB)
 
 		expect(BasicallyIdentical(color3, TEST_COLOR3)).to.equal(true)

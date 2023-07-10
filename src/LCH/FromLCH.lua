@@ -1,5 +1,5 @@
-local Assert = require(script.Parent.Parent._Util.Assert)
-local isNaN = require(script.Parent.Parent._Util.isNaN)
+local Assert = require(script.Parent.Parent.Util.Assert)
+local isNaN = require(script.Parent.Parent.Util.isNaN)
 
 local CONST = require(script.Parent.Constants)
 local LAB = require(script.Parent.Parent.LAB)

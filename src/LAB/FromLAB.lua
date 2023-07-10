@@ -1,5 +1,5 @@
-local Assert = require(script.Parent.Parent._Util.Assert)
-local isNaN = require(script.Parent.Parent._Util.isNaN)
+local Assert = require(script.Parent.Parent.Util.Assert)
+local isNaN = require(script.Parent.Parent.Util.isNaN)
 
 local CONST = require(script.Parent.Constants)
 
@@ -15,8 +15,8 @@ end
   @function fromLAB
   @within LAB
 
-  @param lab LAB -- The colour to convert.
-  @return Color3 -- The converted colour.
+  @param lab LAB -- The color to convert.
+  @return Color3 -- The converted color.
 ]=]
 local function FromLAB(lab: CONST.LAB): Color3
 	Assert.typeOf("FromLAB", "lab", "table", lab)

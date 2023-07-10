@@ -1,4 +1,4 @@
-local Assert = require(script.Parent.Parent._Util.Assert)
+local Assert = require(script.Parent.Parent.Util.Assert)
 
 local assertTypeOf = Assert.prepTypeOf("Monochromatic")
 local assertEvalArg = Assert.prepEvalArg("Monochromatic")
@@ -11,9 +11,9 @@ local sort = table.sort
 	@function Monochromatic
 	@within Palette
 
-	@param base Color3 -- The base colour.
+	@param base Color3 -- The base color.
 	@param swatches number -- The number of swatches to generate.
-	@return {Color3} -- The monochromatic colours.
+	@return {Color3} -- The monochromatic colors.
 ]=]
 return function(base: Color3, swatches: number?): { Color3 }
 	swatches = swatches or 3
@@ -27,16 +27,16 @@ return function(base: Color3, swatches: number?): { Color3 }
 	local h, s, v = base:ToHSV()
 	local increment = 1 / swatches
 
-	local colours = {}
+	local colors = {}
 
 	for _ = 1, swatches do
-		push(colours, Color3.fromHSV(h, s, v))
+		push(colors, Color3.fromHSV(h, s, v))
 		v = (v + increment) % 1
 	end
 
-	sort(colours, function(a, b)
+	sort(colors, function(a, b)
 		return select(3, a:ToHSV()) < select(3, b:ToHSV())
 	end)
 
-	return colours
+	return colors
 end

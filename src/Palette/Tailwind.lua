@@ -1,6 +1,6 @@
-local Array = require(script.Parent.Parent._Util.Array)
-local Assert = require(script.Parent.Parent._Util.Assert)
-local Types = require(script.Parent.Parent._Util.Types)
+local Array = require(script.Parent.Parent.Util.Array)
+local Assert = require(script.Parent.Parent.Util.Assert)
+local Types = require(script.Parent.Parent.Util.Types)
 
 local HSL = require(script.Parent.Parent.HSL)
 local Saturate = require(script.Parent.Parent.Saturate)
@@ -29,7 +29,7 @@ local SATURATION_MAP = { 0.32, 0.16, 0.08, 0.04, 0, 0, 0.04, 0.08, 0.16, 0.32 }
 ]=]
 export type TailwindPalette = Types.Dictionary<number, Color3>
 
-local function GetBaseColourSaturationIndex(hsl: HSL.HSL): number
+local function GetBaseColorSaturationIndex(hsl: HSL.HSL): number
 	local goal = hsl.L / 100
 
 	local closestLightness = Array.reduce(LIGHTNESS_MAP, function(previous, current)
@@ -43,28 +43,28 @@ end
 	@function Tailwind
 	@within Palette
 
-	@param base Color3 -- The base colour.
+	@param base Color3 -- The base color.
 	@return TailwindPalette -- The generated palette.
 ]=]
 local function Tailwind(base: Color3): TailwindPalette
 	assertTypeOf("base", "Color3", base)
 
 	local hsl = HSL.toHSL(base)
-	local satIndex = GetBaseColourSaturationIndex(hsl)
+	local satIndex = GetBaseColorSaturationIndex(hsl)
 
-	local colours = Array.map(
+	local colors = Array.map(
 		Array.map(LIGHTNESS_MAP, function(lightness: number)
 			return HSL.fromHSL({ H = hsl.H, S = hsl.S, L = lightness * 100 })
 		end),
-		function(colour: Color3, index)
+		function(color: Color3, index)
 			local satDelta = SATURATION_MAP[index] - SATURATION_MAP[satIndex]
-			return Saturate(colour, satDelta)
+			return Saturate(color, satDelta)
 		end
 	)
 
-	return Array.reduce(colours, function(accumulator, colour: Color3, index)
+	return Array.reduce(colors, function(accumulator, color: Color3, index)
 		local key = if index == 1 then 50 else (index - 1) * 100
-		accumulator[key] = colour
+		accumulator[key] = color
 
 		return accumulator
 	end, {})

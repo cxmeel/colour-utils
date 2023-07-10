@@ -1,13 +1,16 @@
+local deprecateWarnOnce = require(script.Util.DeprecateWarnOnce)
+
+local GetContrastRatioCompat = require(script.GetContrastRatioCompat)
+local WCAG = require(script.WCAG)
+
 --[=[
-	@class ColourUtils
+	@class ColorUtils
 ]=]
 local module = {
 	-- Methods --
 	Darken = require(script.Darken),
 	Desaturate = require(script.Desaturate),
-	Emphasise = require(script.Emphasise),
-	GetContrastingColour = require(script.GetContrastingColour),
-	GetContrastRatio = require(script.GetContrastRatio),
+	Emphasize = require(script.Emphasize),
 	GetLuminance = require(script.GetLuminance),
 	GetPerceivedBrightness = require(script.GetPerceivedBrightness),
 	Invert = require(script.Invert),
@@ -27,10 +30,26 @@ local module = {
 	LAB = require(script.LAB),
 	LCH = require(script.LCH),
 	Palette = require(script.Palette),
-	WCAG = require(script.WCAG),
+	WCAG = WCAG,
 }
 
-module.Emphasize = module.Emphasise
-module.GetContrastingColor = module.GetContrastingColour
+-- Deprecated methods --
+module.Emphasise =
+	deprecateWarnOnce(module.Emphasize)("ColorUtils.Emphasise", "ColorUtils.Emphasize") :: typeof(module.Emphasize)
+
+module.GetContrastingColor = deprecateWarnOnce(WCAG.GetContrastingColor)(
+	"ColorUtils.GetContrastingColor",
+	"WCAG.GetContrastingColor"
+) :: typeof(WCAG.GetContrastingColor)
+
+module.GetContrastingColour = deprecateWarnOnce(module.GetContrastingColor)(
+	"ColorUtils.GetContrastingColour",
+	"WCAG.GetContrastingColor"
+) :: typeof(module.GetContrastingColor)
+
+module.GetContrastRatio = deprecateWarnOnce(GetContrastRatioCompat)(
+	"ColorUtils.GetContrastRatio",
+	"WCAG.GetContrastRatio"
+) :: typeof(GetContrastRatioCompat)
 
 return module

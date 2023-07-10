@@ -1,4 +1,4 @@
-local Assert = require(script.Parent._Util.Assert)
+local Assert = require(script.Parent.Util.Assert)
 
 local round = math.round
 local floor = math.floor
@@ -24,14 +24,14 @@ export type HSL = {
   @function toHSL
   @within HSL
 
-  @param colour Color3 -- The colour to convert.
-  @return HSL -- The HSL representation of the colour.
+  @param color Color3 -- The color to convert.
+  @return HSL -- The HSL representation of the color.
 ]=]
-local function ToHSL(colour: Color3): HSL
-	Assert.typeOf("ToHSL", "colour", "Color3", colour)
+local function ToHSL(color: Color3): HSL
+	Assert.typeOf("ToHSL", "color", "Color3", color)
 
-	local channelMin = min(colour.R, colour.G, colour.B)
-	local channelMax = max(colour.R, colour.G, colour.B)
+	local channelMin = min(color.R, color.G, color.B)
+	local channelMax = max(color.R, color.G, color.B)
 	local delta = channelMax - channelMin
 
 	local hue = 0
@@ -40,12 +40,12 @@ local function ToHSL(colour: Color3): HSL
 
 	if delta == 0 then
 		hue = 0
-	elseif channelMax == colour.R then
-		hue = ((colour.G - colour.B) / delta) % 6
-	elseif channelMax == colour.G then
-		hue = (colour.B - colour.R) / delta + 2
+	elseif channelMax == color.R then
+		hue = ((color.G - color.B) / delta) % 6
+	elseif channelMax == color.G then
+		hue = (color.B - color.R) / delta + 2
 	else
-		hue = (colour.R - colour.G) / delta + 4
+		hue = (color.R - color.G) / delta + 4
 	end
 
 	hue = round(hue * 60)
@@ -68,7 +68,7 @@ end
   @function fromHSL
   @within HSL
 
-  @param hsl HSL -- The HSL colour to convert.
+  @param hsl HSL -- The HSL color to convert.
   @return Color3 -- The resulting Color3.
 ]=]
 local function FromHSL(hsl: HSL): Color3

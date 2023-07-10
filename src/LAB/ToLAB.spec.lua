@@ -4,7 +4,7 @@ return function()
 	local TEST_COLOR3 = Color3.fromHex("#00a2ff")
 	local TEST_LAB = { L = 64.21, A = -1.67, B = -55.7 }
 
-	it("converts a Color3 to a LAB colour", function()
+	it("converts a Color3 to a LAB color", function()
 		local lab = ToLAB(TEST_COLOR3)
 
 		expect(lab.L).to.be.near(TEST_LAB.L, 0.02)

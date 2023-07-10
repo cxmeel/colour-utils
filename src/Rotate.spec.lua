@@ -1,4 +1,4 @@
-local BasicallyIdentical = require(script.Parent._Util.BasicallyIdentical)
+local BasicallyIdentical = require(script.Parent.Util.BasicallyIdentical)
 
 return function()
 	local Rotate = require(script.Parent.Rotate)
@@ -9,19 +9,19 @@ return function()
 		expect(pcall(Rotate, Color3.new(), false)).to.equal(false)
 	end)
 
-	it("can rotate a colour 180deg to receive the inverse", function()
-		local colour = Color3.fromRGB(0, 162, 255)
+	it("can rotate a color 180deg to receive the inverse", function()
+		local color = Color3.fromRGB(0, 162, 255)
 
-		local inverseHue = Invert(colour):ToHSV()
-		local rotatedHue = Rotate(colour, 180):ToHSV()
+		local inverseHue = Invert(color):ToHSV()
+		local rotatedHue = Rotate(color, 180):ToHSV()
 
 		expect(inverseHue).to.be.near(rotatedHue, 0.001)
 	end)
 
-	it("can rotate a colour 360deg to receive the same colour", function()
-		local colour = Color3.new(0, 1, 1)
-		local result = Rotate(colour, 360)
+	it("can rotate a color 360deg to receive the same color", function()
+		local color = Color3.new(0, 1, 1)
+		local result = Rotate(color, 360)
 
-		expect(BasicallyIdentical(colour, result)).to.equal(true)
+		expect(BasicallyIdentical(color, result)).to.equal(true)
 	end)
 end

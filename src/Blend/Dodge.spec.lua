@@ -1,4 +1,4 @@
-local BasicallyIdentical = require(script.Parent.Parent._Util.BasicallyIdentical)
+local BasicallyIdentical = require(script.Parent.Parent.Util.BasicallyIdentical)
 
 return function()
 	local Filter = require(script.Parent.Dodge)

@@ -1,4 +1,4 @@
-local BasicallyIdentical = require(script.Parent.Parent._Util.BasicallyIdentical)
+local BasicallyIdentical = require(script.Parent.Parent.Util.BasicallyIdentical)
 
 return function()
 	local Tailwind = require(script.Parent.Tailwind)
@@ -20,8 +20,8 @@ return function()
 	it("generates a tailwind-like palette", function()
 		local palette = Tailwind(BASE)
 
-		for key, colour in pairs(RESULT) do
-			expect(BasicallyIdentical(colour, palette[key])).to.equal(true)
+		for key, color in pairs(RESULT) do
+			expect(BasicallyIdentical(color, palette[key])).to.equal(true)
 		end
 	end)
 

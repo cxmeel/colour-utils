@@ -1,4 +1,4 @@
-local Assert = require(script.Parent.Parent._Util.Assert)
+local Assert = require(script.Parent.Parent.Util.Assert)
 local CONST = require(script.Parent.Constants)
 
 local function RGB_XYZ(value: number): number
@@ -17,10 +17,10 @@ local function XYZ_LAB(value: number): number
 	return value / CONST.t2 + CONST.t0
 end
 
-local function ToVector3(colour: Color3): Vector3
-	local red = RGB_XYZ(colour.R)
-	local green = RGB_XYZ(colour.G)
-	local blue = RGB_XYZ(colour.B)
+local function ToVector3(color: Color3): Vector3
+	local red = RGB_XYZ(color.R)
+	local green = RGB_XYZ(color.G)
+	local blue = RGB_XYZ(color.B)
 
 	return Vector3.new(
 		XYZ_LAB((0.4124564 * red + 0.3575761 * green + 0.1804375 * blue) / CONST.Xn),
@@ -33,13 +33,13 @@ end
   @function toLAB
   @within LAB
 
-  @param colour Color3 -- The colour to convert.
-  @return LAB -- The converted colour.
+  @param color Color3 -- The color to convert.
+  @return LAB -- The converted color.
 ]=]
-local function ToLAB(colour: Color3): CONST.LAB
-	Assert.typeOf("ToLAB", "colour", "Color3", colour)
+local function ToLAB(color: Color3): CONST.LAB
+	Assert.typeOf("ToLAB", "color", "Color3", color)
 
-	local vector = ToVector3(colour)
+	local vector = ToVector3(color)
 	local l = 116 * vector.Y - 16
 
 	return {

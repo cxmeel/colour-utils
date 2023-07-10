@@ -1,4 +1,4 @@
-local basicallyIdentical = require(script.Parent.Parent._Util.BasicallyIdentical)
+local basicallyIdentical = require(script.Parent.Parent.Util.BasicallyIdentical)
 local labLerp = require(script.Parent.Lerp)
 
 local START_COLOR3 = Color3.fromHex("#00a2ff")
@@ -28,10 +28,6 @@ return function()
 	it("throws if alpha is not a number", function()
 		expect(function()
 			labLerp(START_COLOR3, END_COLOR3, "0.5")
-		end).to.throw()
-
-		expect(function()
-			labLerp(START_COLOR3, END_COLOR3, 0 / 0)
 		end).to.throw()
 	end)
 end

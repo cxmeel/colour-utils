@@ -2,10 +2,10 @@
   @function Transparency
   @within Blend
 
-  @param background Color3 -- The background colour.
-  @param foreground Color3 -- The foreground colour.
+  @param background Color3 -- The background color.
+  @param foreground Color3 -- The foreground color.
   @param transparency number -- The transparency value.
-  @return Color3 -- The resulting colour.
+  @return Color3 -- The resulting color.
 ]=]
 local function applyTransparency(background: Color3, foreground: Color3, transparency: number): Color3
 	local alpha = 1 - transparency

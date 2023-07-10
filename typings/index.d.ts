@@ -181,6 +181,15 @@ declare namespace ColourUtils {
      * @returns {Color3}
      */
     function fromLAB(lab: LAB): Color3
+
+    /**
+     * Interpolates between two Color3s using LAB colour space
+     * @param {Color3} from - The first Color3 to interpolate between
+     * @param {Color3} to - The second Color3 to interpolate between
+     * @param {number} alpha - The amount to interpolate between the two colors
+     * @returns {Color3}
+     */
+    function Lerp(from: Color3, to: Color3, alpha: number): Color3
   }
 
   namespace LCH {
@@ -366,6 +375,15 @@ declare namespace ColourUtils {
      * @returns {TailwindPalette} An object containing Color3 values
      */
     function Tailwind(base: Color3): TailwindPalette
+
+    /**
+     * Given an array of Color3s, returns the color that is
+     * closest to the given Color3.
+     * @param {Color3} to - The color to find the nearest color to.
+     * @param {Color3[]} from - The array of colors to search through.
+     * @returns {Color3} The nearest color to the given color.
+     */
+    function Nearest(to: Color3, from: Color3[]): Color3
   }
 
   namespace WCAG {

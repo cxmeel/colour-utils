@@ -1,4 +1,4 @@
-local Assert = require(script.Parent.Parent._Util.Assert)
+local Assert = require(script.Parent.Parent.Util.Assert)
 local LAB = require(script.Parent.Parent.LAB)
 
 local CONST = require(script.Parent.Constants)
@@ -26,13 +26,13 @@ end
 	@function toLCH
 	@within LCH
 
-	@param colour Color3 -- The color to convert.
+	@param color Color3 -- The color to convert.
 	@return LCH -- The converted color.
 ]=]
-local function ToLCH(colour: Color3): CONST.LCH
-	Assert.typeOf("ToLCH", "colour", "Color3", colour)
+local function ToLCH(color: Color3): CONST.LCH
+	Assert.typeOf("ToLCH", "color", "Color3", color)
 
-	local lab = LAB.toLAB(colour)
+	local lab = LAB.toLAB(color)
 	return LABtoLCH(lab)
 end
 

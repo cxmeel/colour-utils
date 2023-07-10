@@ -2,6 +2,6 @@
 	@class WCAG
 ]=]
 return {
-	GetContrastingColour = require(script.GetContrastingColour),
+	GetContrastingColor = require(script.GetContrastingColor),
 	GetContrastRatio = require(script.GetContrastRatio),
 }

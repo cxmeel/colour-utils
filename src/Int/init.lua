@@ -1,5 +1,5 @@
-local Assert = require(script.Parent._Util.Assert)
-local ClampColour = require(script.Parent._Util.ClampColour)
+local Assert = require(script.Parent.Util.Assert)
+local ClampColor = require(script.Parent.Util.ClampColor)
 
 local floor = math.floor
 local rshift = bit32.rshift
@@ -21,22 +21,22 @@ local function FromInt(int: number): Color3
 	local green = band(rshift(int, 8), 255)
 	local blue = band(int, 255)
 
-	return ClampColour(Color3.fromRGB(red, green, blue))
+	return ClampColor(Color3.fromRGB(red, green, blue))
 end
 
 --[=[
 	@function toInt
 	@within Int
 
-	@param colour Color3 -- The colour to convert.
-	@return number -- The integer representation of the colour.
+	@param color Color3 -- The color to convert.
+	@return number -- The integer representation of the color.
 ]=]
-local function ToInt(colour: Color3): number
-	Assert.typeOf("ToInt", "colour", "Color3", colour)
+local function ToInt(color: Color3): number
+	Assert.typeOf("ToInt", "color", "Color3", color)
 
-	local int = floor(colour.R * 255)
-	int = lshift(int, 8) + floor(colour.G * 255)
-	int = lshift(int, 8) + floor(colour.B * 255)
+	local int = floor(color.R * 255)
+	int = lshift(int, 8) + floor(color.G * 255)
+	int = lshift(int, 8) + floor(color.B * 255)
 
 	return int
 end

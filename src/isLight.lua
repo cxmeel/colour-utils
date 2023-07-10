@@ -1,17 +1,17 @@
-local Assert = require(script.Parent._Util.Assert)
+local Assert = require(script.Parent.Util.Assert)
 local assertTypeOf = Assert.prepTypeOf("isLight")
 
 local isDark = require(script.Parent.isDark)
 
 --[=[
 	@function isLight
-	@within ColourUtils
+	@within ColorUtils
 
-	@param colour Color3 -- The colour to check.
-	@return boolean -- Whether the colour is light.
+	@param color Color3 -- The color to check.
+	@return boolean -- Whether the color is light.
 ]=]
-return function(colour: Color3): boolean
-	assertTypeOf("colour", "Color3", colour)
+return function(color: Color3): boolean
+	assertTypeOf("color", "Color3", color)
 
-	return not isDark(colour)
+	return not isDark(color)
 end

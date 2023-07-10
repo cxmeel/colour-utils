@@ -1,10 +1,44 @@
 # Changelog
 
+## [1.4.1]
+
+### Added
+
+- Implemented `Palette.Nearest` method, which returns the nearest colour in a
+  palette to a given colour.
+- Implemented `LAB.Lerp` method, which returns a colour between two colours in
+  the LAB colour space.
+
+### Fixed
+
+- Due to a typo, the `APCA.GetContrastRatio` method was throwing an error when
+  attempting to calculate the contrast ratio for certain colours.
+
+### Changed
+
+All deprecated methods will output warnings to the console when used for the
+first time. This is to help users migrate to the new methods.
+
+- All instances of the word "colour" have been changed to "color" to match the
+  US spelling and keep consistency with the Roblox API.
+- `ColorUtils.Emphasise` and `ColorUtils.GetContrastingColour` are now marked as
+  deprecated for the same reason as above.
+- `ColorUtils.GetContrastingColor` is now marked as deprecated. The `WCAG`
+  submodule should be used instead, since both `APCA` and `WCAG` provide two
+  different methods for calculating contrast ratio.
+- `ColorUtils.GetContrastRatio` is now marked as deprecated and implements a
+  compatibility layer. Previously this was a redirect to `WCAG.GetContrastRatio`
+  but now it will use `APCA.GetContrastRatio` because it is more accurate. `WCAG`
+  values (`0-21`) will be returned for backwards compatibility until the method is
+  removed in a future release.
+
 ## [1.3.1]
 
 - Implemented transparency blending:
-  - This returns a new Color3 that acts as if it was overlaid on a background color with a given alpha.
-- Added `Hex.fromHexRGBA`, which converts a hex string with an alpha channel to a Color3.
+  - This returns a new Color3 that acts as if it was overlaid on a background
+    color with a given alpha.
+- Added `Hex.fromHexRGBA`, which converts a hex string with an alpha channel to
+  a Color3.
 
 ## [1.3.0]
 
@@ -15,28 +49,36 @@
   - `LAB` (`.fromLAB, .toLAB`) _(:test_tube: experimental)_.
   - `LCH` (`.fromLCH, .toLCH`) _(:test_tube: experimental)_.
 - Saturation methods to either saturate or desaturate a colour.
-- Tailwind CSS-style palette generator - Generates 10 swatches, given a base colour, and returns a `TailwindPalette` object (see the docs for more details).
+- Tailwind CSS-style palette generator - Generates 10 swatches, given a base
+  colour, and returns a `TailwindPalette` object (see the docs for more details).
 
 ### Changed
 
-- Updated the docs for Hex and Int. The converter methods were previously documented in PascalCase, but they should have been documented in camelCase.
-- The `Palette.Monochromatic` method now accepts an optional second parameter, `swatches`, which defaults to `3`. This is to allow for more control over the number of swatches generated.
-  - **:warning: Warning:** The behaviour of monochromatic has been changed to allow for more control over the number of swatches generated.
-  - The new behaviour will return `X` amount of swatches, **including** the base colour. The results do not necessarily include a single lighter and darker swatch, and the resulting array is now sorted from darkest to lightest (most vibrant).
-
-###
+- Updated the docs for Hex and Int. The converter methods were previously
+  documented in PascalCase, but they should have been documented in camelCase.
+- The `Palette.Monochromatic` method now accepts an optional second parameter,
+  `swatches`, which defaults to `3`. This is to allow for more control over the
+  number of swatches generated.
+  - **:warning: Warning:** The behaviour of monochromatic has been changed to
+    allow for more control over the number of swatches generated.
+  - The new behaviour will return `X` amount of swatches, **including** the base
+    colour. The results do not necessarily include a single lighter and darker
+    swatch, and the resulting array is now sorted from darkest to lightest (most
+    vibrant).
 
 ## [1.2.0]
 
 ### Added
 
-- `WCAG` submodule to house the current `.GetContrastRatio` and `.GetContrastingColour` methods.
+- `WCAG` submodule to house the current `.GetContrastRatio` and `.GetContrastingColour`
+  methods.
 - `APCA` submodule, which contains an updated version of `.GetContrastRatio`.
 - Implemented colour blindness simulation under the `Blind` submodule.
   - Supports the Trichroma-, Protan-, Deutan-, Tritan- and Achroma- groups.
   - Includes friendly "`Enums`" for non-scientists.
 - Documentation site using [moonwave](https://upliftgames.github.io/moonwave/).
-- TypeScript alias for `.GetContrastingColour` in root namespace (previously only Luau).
+- TypeScript alias for `.GetContrastingColour` in root namespace (previously only
+  Luau).
 
 ### Changed
 
@@ -45,13 +87,15 @@
 
 ### Removed
 
-- Removed `rotriever.toml` to drop support for kayak and other rotriever-based package managers.
+- Removed `rotriever.toml` to drop support for kayak and other rotriever-based
+  package managers.
 
 ## [1.1.1]
 
 ### Added
 
-- Added `.GetContrastingColour` to adjust a forground colour to meet the minimum contrast ratio against a background colour.
+- Added `.GetContrastingColour` to adjust a forground colour to meet the minimum
+  contrast ratio against a background colour.
 
 ## [1.1.0]
 

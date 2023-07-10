@@ -1,7 +1,7 @@
-local BasicallyIdentical = require(script.Parent.Parent._Util.BasicallyIdentical)
+local BasicallyIdentical = require(script.Parent.Parent.Util.BasicallyIdentical)
 
 return function()
-	local GetContrastingColour = require(script.Parent.GetContrastingColour)
+	local GetContrastingColor = require(script.Parent.GetContrastingColor)
 
 	local BLACK = Color3.new()
 	local WHITE = Color3.new(1, 1, 1)
@@ -16,23 +16,23 @@ return function()
 	local PW_TARGET = Color3.new(0.448, 0, 0.448)
 
 	it("throws if arguments are not Color3s", function()
-		expect(pcall(GetContrastingColour, BLACK, true)).to.equal(false)
-		expect(pcall(GetContrastingColour, true, BLACK)).to.equal(false)
-		expect(pcall(GetContrastingColour, 100, true)).to.equal(false)
+		expect(pcall(GetContrastingColor, BLACK, true)).to.equal(false)
+		expect(pcall(GetContrastingColor, true, BLACK)).to.equal(false)
+		expect(pcall(GetContrastingColor, 100, true)).to.equal(false)
 	end)
 
 	it("returns a Color3", function()
-		local result = GetContrastingColour(BLACK, WHITE)
+		local result = GetContrastingColor(BLACK, WHITE)
 		expect(typeof(result)).to.equal("Color3")
 	end)
 
-	it("adjusts a colour to meet the minimum ratio", function()
-		local black = GetContrastingColour(BLACK, BLACK)
-		local white = GetContrastingColour(WHITE, WHITE)
-		local yellow = GetContrastingColour(YELLOW, WHITE)
-		local navy = GetContrastingColour(NAVY, BLACK)
+	it("adjusts a color to meet the minimum ratio", function()
+		local black = GetContrastingColor(BLACK, BLACK)
+		local white = GetContrastingColor(WHITE, WHITE)
+		local yellow = GetContrastingColor(YELLOW, WHITE)
+		local navy = GetContrastingColor(NAVY, BLACK)
 
-		local pink = GetContrastingColour(PINK, WHITE, 7)
+		local pink = GetContrastingColor(PINK, WHITE, 7)
 
 		expect(BasicallyIdentical(black, BB_TARGET)).to.equal(true)
 		expect(BasicallyIdentical(white, WW_TARGET)).to.equal(true)

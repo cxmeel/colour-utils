@@ -1,14 +1,8 @@
 local fmt = string.format
 local abs = math.abs
 
-local function StringifyColor3(colour: Color3): string
-	return string.format(
-		'Color3<%.3g, %.3g, %.3g> "#%s"',
-		colour.R * 255,
-		colour.G * 255,
-		colour.B * 255,
-		colour:ToHex()
-	)
+local function StringifyColor3(color: Color3): string
+	return string.format('Color3<%.3g, %.3g, %.3g> "#%s"', color.R * 255, color.G * 255, color.B * 255, color:ToHex())
 end
 
 return function(base: Color3, compare: Color3, distance: number?): boolean
