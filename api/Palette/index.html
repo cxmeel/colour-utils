@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v2.3.1">
 <title data-rh="true">Palette | ColorUtils</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://csqrl.github.io/colour-utils/api/Palette"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="Palette | ColorUtils"><link data-rh="true" rel="canonical" href="https://csqrl.github.io/colour-utils/api/Palette"><link data-rh="true" rel="alternate" href="https://csqrl.github.io/colour-utils/api/Palette" hreflang="en"><link data-rh="true" rel="alternate" href="https://csqrl.github.io/colour-utils/api/Palette" hreflang="x-default"><link rel="stylesheet" href="/colour-utils/assets/css/styles.19a5646f.css">
-<link rel="preload" href="/colour-utils/assets/js/runtime~main.8223269e.js" as="script">
-<link rel="preload" href="/colour-utils/assets/js/main.17a3eb1f.js" as="script">
+<link rel="preload" href="/colour-utils/assets/js/runtime~main.bc2a36e7.js" as="script">
+<link rel="preload" href="/colour-utils/assets/js/main.a904cb34.js" as="script">
 </head>
 <body class="navigation-with-keyboard">
 <script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
@@ -23,7 +23,7 @@
 <span class="token keyword">local</span> palette <span class="token operator">=</span> <span class="token function">Tailwind</span><span class="token punctuation">(</span>BASE_COLOR<span class="token punctuation">)</span>
 </code></pre>
 <p>
-  <img src="/media/tailwind-palette.png" alt="Tailwind palette">
+  <img src="/colour-utils/media/tailwind-palette.png" alt="Tailwind palette">
 </p>
 </div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Nearest"><code style="text-decoration:none">Nearest</code><a href="#Nearest" class="hash-link" aria-label="Direct link to Nearest" title="Direct link to Nearest">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/csqrl/colour-utils/blob/default/src/Palette/Nearest.lua#L12"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Palette<!-- -->.</code><code class="green_DgR4">Nearest</code><code>(</code><div class="inset_uKQm"><div><code>to<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Color3" target="_blank" rel="noopener noreferrer">Color3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>The color to find the nearest color to.</p>
@@ -83,7 +83,7 @@
     &quot;functions&quot;: [
         {
             &quot;name&quot;: &quot;Tailwind&quot;,
-            &quot;desc&quot;: &quot;Generates a TailwindCSS-like palette from a given base color. The generator is\nbased on Smart Swatch by Ivan Dalmet, so results will not be identical to\nTailwindCSS.\n\n\n```lua\nlocal BASE_COLOR = Color3.fromHex(\&quot;#00a2ff\&quot;)\nlocal palette = Tailwind(BASE_COLOR)\n```\n\n![Tailwind palette](/media/tailwind-palette.png)&quot;,
+            &quot;desc&quot;: &quot;Generates a TailwindCSS-like palette from a given base color. The generator is\nbased on Smart Swatch by Ivan Dalmet, so results will not be identical to\nTailwindCSS.\n\n\n```lua\nlocal BASE_COLOR = Color3.fromHex(\&quot;#00a2ff\&quot;)\nlocal palette = Tailwind(BASE_COLOR)\n```\n\n![Tailwind palette](/colour-utils/media/tailwind-palette.png)&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;base&quot;,
@@ -395,7 +395,7 @@
         &quot;path&quot;: &quot;src/Palette/init.lua&quot;
     }
 }</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a><ul><li><a href="#TailwindPalette" class="table-of-contents__link toc-highlight">TailwindPalette</a></li><li><a href="#VibrantOptions" class="table-of-contents__link toc-highlight">VibrantOptions</a></li></ul></li><li><a href="#properties" class="table-of-contents__link toc-highlight">Properties</a></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#Analogous" class="table-of-contents__link toc-highlight">.Analogous</a></li><li><a href="#Complementary" class="table-of-contents__link toc-highlight">.Complementary</a></li><li><a href="#Monochromatic" class="table-of-contents__link toc-highlight">.Monochromatic</a></li><li><a href="#Nearest" class="table-of-contents__link toc-highlight">.Nearest</a></li><li><a href="#SplitComplementary" class="table-of-contents__link toc-highlight">.SplitComplementary</a></li><li><a href="#Tailwind" class="table-of-contents__link toc-highlight">.Tailwind</a></li><li><a href="#Tetradic" class="table-of-contents__link toc-highlight">.Tetradic</a></li><li><a href="#Triadic" class="table-of-contents__link toc-highlight">.Triadic</a></li><li><a href="#Vibrant" class="table-of-contents__link toc-highlight">.Vibrant</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2023 csqrl. Built with Moonwave and Docusaurus.</div></div></div></footer></div>
-<script src="/colour-utils/assets/js/runtime~main.8223269e.js"></script>
-<script src="/colour-utils/assets/js/main.17a3eb1f.js"></script>
+<script src="/colour-utils/assets/js/runtime~main.bc2a36e7.js"></script>
+<script src="/colour-utils/assets/js/main.a904cb34.js"></script>
 </body>
 </html>
