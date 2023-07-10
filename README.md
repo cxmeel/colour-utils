@@ -65,11 +65,11 @@ wally install
 
 ### TypeScript
 
-Install the [`@rbxts/color-utils`][npm] package using npm or yarn.
+Install the [`@rbxts/colour-utils`][npm] package using npm or yarn.
 
 ```sh
-npm i @rbxts/color-utils
-yarn add @rbxts/color-utils
+npm i @rbxts/colour-utils
+yarn add @rbxts/colour-utils
 ```
 
 ### Manual Installation
