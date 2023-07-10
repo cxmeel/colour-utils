@@ -56,7 +56,7 @@ end
 	local palette = Tailwind(BASE_COLOR)
 	```
 
-	![Tailwind palette](/media/tailwind-palette.png)
+	![Tailwind palette](/colour-utils/media/tailwind-palette.png)
 ]=]
 local function Tailwind(base: Color3): TailwindPalette
 	assertTypeOf("base", "Color3", base)
