@@ -23,7 +23,7 @@ jobs:
 
       - name: Report Tool Versions
         run: |
-          foreman list
+          aftman list
           npm -v
           node -v
 
