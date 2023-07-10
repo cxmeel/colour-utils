@@ -1,6 +1,6 @@
-local Types = require(script.Parent.Parent._Util.Types)
-local Assert = require(script.Parent.Parent._Util.Assert)
 local Array = require(script.Parent.Parent._Util.Array)
+local Assert = require(script.Parent.Parent._Util.Assert)
+local Types = require(script.Parent.Parent._Util.Types)
 
 local HSL = require(script.Parent.Parent.HSL)
 local Saturate = require(script.Parent.Parent.Saturate)

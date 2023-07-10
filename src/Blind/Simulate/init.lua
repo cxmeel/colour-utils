@@ -14,8 +14,8 @@ type VectorXyY = {
 	Y: number,
 }
 
-local Enums = require(script.Parent.Enum)
 local Configs = require(script.Configs)
+local Enums = require(script.Parent.Enum)
 
 local function RGBtoXYZ(colour: Color3): Vector3
 	local M = Configs.Matrix.RGB_XYZ

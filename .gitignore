@@ -1,7 +1,7 @@
 *.rbx*
+sourcemap.json
 
 roblox.toml
-testez.toml
 
 node_modules/
 *.tsbuildinfo

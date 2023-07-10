@@ -1,6 +1,6 @@
+local Darken = require(script.Parent.Darken)
 local GetLuminance = require(script.Parent.GetLuminance)
 local Lighten = require(script.Parent.Lighten)
-local Darken = require(script.Parent.Darken)
 
 --[=[
 	@function Emphasise

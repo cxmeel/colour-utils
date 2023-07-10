@@ -1,5 +1,5 @@
-local ClampColour = require(script.Parent.Parent._Util.ClampColour)
 local Assert = require(script.Parent.Parent._Util.Assert)
+local ClampColour = require(script.Parent.Parent._Util.ClampColour)
 
 return function(filterName: string, applyFilter: (number, number) -> number): (Color3, Color3) -> Color3
 	local assertTypeOf = Assert.prepTypeOf(filterName)

@@ -64,14 +64,14 @@ local function GetContrastRatio(foreground: Color3, background: Color3): number
 
 		outputContrast = if sapc < CONST.LOW_CLIP
 			then 0
-			elseif sapc < CONST.LOW_BOW_THRS then sapc - sapc * CONST.LOW_BOW_FACTOR * CONST.LOW_BOW_OFFS
+			elseif sapc < CONST.LOW_BOW_THRS then sapc - sapc * CONST.LOW_BOW_FACT * CONST.LOW_BOW_OFFS
 			else sapc - CONST.LOW_BOW_OFFS
 	else
 		sapc = (bgY ^ CONST.REV_BG_EXP - fgY ^ CONST.REV_FG_EXP) * CONST.SCALE_WOB
 
 		outputContrast = if sapc > -CONST.LOW_CLIP
 			then 0
-			elseif sapc > -CONST.LOW_WOB_THRS then sapc - sapc * CONST.LOW_WOB_FACTOR * CONST.LOW_WOB_OFFS
+			elseif sapc > -CONST.LOW_WOB_THRS then sapc - sapc * CONST.LOW_WOB_FACT * CONST.LOW_WOB_OFFS
 			else sapc + CONST.LOW_WOB_OFFS
 	end
 

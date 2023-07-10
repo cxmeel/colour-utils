@@ -1,8 +1,8 @@
 local Assert = require(script.Parent.Parent._Util.Assert)
 local isNaN = require(script.Parent.Parent._Util.isNaN)
 
-local LAB = require(script.Parent.Parent.LAB)
 local CONST = require(script.Parent.Constants)
+local LAB = require(script.Parent.Parent.LAB)
 
 local sin = math.sin
 local cos = math.cos

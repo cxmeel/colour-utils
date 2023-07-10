@@ -1,9 +1,9 @@
 local Assert = require(script.Parent.Parent._Util.Assert)
 local assertTypeOf = Assert.prepTypeOf("GetContrastingColour")
 
+local Darken = require(script.Parent.Parent.Darken)
 local GetContrastRatio = require(script.Parent.GetContrastRatio)
 local Lighten = require(script.Parent.Parent.Lighten)
-local Darken = require(script.Parent.Parent.Darken)
 local isDark = require(script.Parent.Parent.isDark)
 
 local MIN_RATIO = 4.5

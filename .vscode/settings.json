@@ -1,8 +1,7 @@
 {
-  "robloxLsp.diagnostics.severity": {
-    "unused-local": "Error",
-    "unused-function": "Error",
-    "unused-vararg": "Error",
-    "duplicate-index": "Error"
-  }
+  "[lua]": {
+    "editor.defaultFormatter": "JohnnyMorganz.stylua",
+    "editor.formatOnSave": true
+  },
+  "debug.toolBarLocation": "hidden"
 }

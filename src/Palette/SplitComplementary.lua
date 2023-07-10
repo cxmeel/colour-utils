@@ -1,6 +1,6 @@
-local Types = require(script.Parent.Parent._Util.Types)
 local Assert = require(script.Parent.Parent._Util.Assert)
 local Rotate = require(script.Parent.Parent.Rotate)
+local Types = require(script.Parent.Parent._Util.Types)
 
 local assertTypeOf = Assert.prepTypeOf("SplitComplementary")
 

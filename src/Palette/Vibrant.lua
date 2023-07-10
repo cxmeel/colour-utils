@@ -1,7 +1,7 @@
-local Types = require(script.Parent.Parent._Util.Types)
 local Assert = require(script.Parent.Parent._Util.Assert)
-local Schema = require(script.Parent.Parent._Util.Schema)
 local GetLuminance = require(script.Parent.Parent.GetLuminance)
+local Schema = require(script.Parent.Parent._Util.Schema)
+local Types = require(script.Parent.Parent._Util.Types)
 
 local assertArrayOf = Assert.prepArrayOf("Vibrant")
 

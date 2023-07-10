@@ -1,5 +1,5 @@
-local ClampColour = require(script.Parent._Util.ClampColour)
 local Assert = require(script.Parent._Util.Assert)
+local ClampColour = require(script.Parent._Util.ClampColour)
 local assertTypeOf = Assert.prepTypeOf("Invert")
 
 --[=[
