@@ -1,4 +1,4 @@
-local BasicallyIdentical = require(script.Parent.Parent._Util.BasicallyIdentical)
+local BasicallyIdentical = require(script.Parent.Parent.Util.BasicallyIdentical)
 
 return function()
 	local Vibrant = require(script.Parent.Vibrant)
@@ -52,7 +52,7 @@ return function()
 		expect(typeof(result)).to.equal("Color3")
 	end)
 
-	it("correctly determines most vibrant colour", function()
+	it("correctly determines most vibrant color", function()
 		local results, expects = {}, {}
 
 		for _, swatches in ipairs(testSwatches) do

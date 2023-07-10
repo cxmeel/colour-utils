@@ -1,5 +1,5 @@
-local Assert = require(script.Parent._Util.Assert)
-local ClampColour = require(script.Parent._Util.ClampColour)
+local Assert = require(script.Parent.Util.Assert)
+local ClampColor = require(script.Parent.Util.ClampColor)
 
 local assertTypeOf = Assert.prepTypeOf("Saturate")
 
@@ -7,18 +7,18 @@ local clamp = math.clamp
 
 --[=[
   @function Saturate
-  @within ColourUtils
+  @within ColorUtils
 
-  @param colour Color3 -- The colour to saturate.
+  @param color Color3 -- The color to saturate.
   @param coefficient number -- The coefficient to saturate by [0-1].
-  @return Color3 -- The saturated colour.
+  @return Color3 -- The saturated color.
 ]=]
-return function(colour: Color3, coefficient: number): Color3
-	assertTypeOf("colour", "Color3", colour)
+return function(color: Color3, coefficient: number): Color3
+	assertTypeOf("color", "Color3", color)
 	assertTypeOf("coefficient", "number", coefficient)
 
-	local H, S, V = colour:ToHSV()
+	local H, S, V = color:ToHSV()
 	S += S * coefficient
 
-	return ClampColour(Color3.fromHSV(H, clamp(S, 0, 1), V))
+	return ClampColor(Color3.fromHSV(H, clamp(S, 0, 1), V))
 end

@@ -1,6 +1,6 @@
 --[[
 	This is a Luau implementation of the APAC method of calculating the contrast
-	ratio between two colours.
+	ratio between two colors.
 
 	This APAC method is based around a few different implementations:
 
@@ -16,7 +16,7 @@
 	> Contrast by @cliambrown
 	> https://github.com/cliambrown/contrast/blob/master/src/apca.js
 ]]
-local Assert = require(script.Parent.Parent._Util.Assert)
+local Assert = require(script.Parent.Parent.Util.Assert)
 local CONST = require(script.Parent.Const)
 
 local assertTypeOf = Assert.prepTypeOf("GetContrastRatioAPCA")
@@ -27,10 +27,10 @@ local function ComputePower(value: number): number
 	return value ^ CONST.SRGB_TRC
 end
 
-local function ComputeY(colour: Color3): number
-	return ComputePower(colour.R) * CONST.RED_COEF
-		+ ComputePower(colour.G) * CONST.GREEN_COEF
-		+ ComputePower(colour.B) * CONST.BLUE_COEF
+local function ComputeY(color: Color3): number
+	return ComputePower(color.R) * CONST.RED_COEF
+		+ ComputePower(color.G) * CONST.GREEN_COEF
+		+ ComputePower(color.B) * CONST.BLUE_COEF
 end
 
 local function SoftClampBlack(y: number): number
@@ -41,8 +41,8 @@ end
 	@function GetContrastRatio
 	@within APCA
 
-	@param foreground Color3 -- The foreground colour.
-	@param background Color3 -- The background colour.
+	@param foreground Color3 -- The foreground color.
+	@param background Color3 -- The background color.
 	@return number -- The contrast ratio [≈-100-100].
 ]=]
 local function GetContrastRatio(foreground: Color3, background: Color3): number
@@ -64,14 +64,14 @@ local function GetContrastRatio(foreground: Color3, background: Color3): number
 
 		outputContrast = if sapc < CONST.LOW_CLIP
 			then 0
-			elseif sapc < CONST.LOW_BOW_THRS then sapc - sapc * CONST.LOW_BOW_FACTOR * CONST.LOW_BOW_OFFS
+			elseif sapc < CONST.LOW_BOW_THRS then sapc - sapc * CONST.LOW_BOW_FACT * CONST.LOW_BOW_OFFS
 			else sapc - CONST.LOW_BOW_OFFS
 	else
 		sapc = (bgY ^ CONST.REV_BG_EXP - fgY ^ CONST.REV_FG_EXP) * CONST.SCALE_WOB
 
 		outputContrast = if sapc > -CONST.LOW_CLIP
 			then 0
-			elseif sapc > -CONST.LOW_WOB_THRS then sapc - sapc * CONST.LOW_WOB_FACTOR * CONST.LOW_WOB_OFFS
+			elseif sapc > -CONST.LOW_WOB_THRS then sapc - sapc * CONST.LOW_WOB_FACT * CONST.LOW_WOB_OFFS
 			else sapc + CONST.LOW_WOB_OFFS
 	end
 

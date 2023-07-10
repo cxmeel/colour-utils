@@ -4,7 +4,7 @@ return function()
 	local TEST_COLOR3 = Color3.fromHex("#00a2ff")
 	local TEST_LCH = { L = 64.2, C = 55.72, H = 268.27 }
 
-	it("converts a Color3 to a LCH colour", function()
+	it("converts a Color3 to a LCH color", function()
 		local lch = ToLCH(TEST_COLOR3)
 
 		expect(lch.L).to.be.near(TEST_LCH.L, 0.02)

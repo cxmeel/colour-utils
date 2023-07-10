@@ -2,16 +2,13 @@ name: Create GitHub Release
 
 on:
   workflow_dispatch:
-    branches:
-      - default
 
 jobs:
   create-release:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       - name: Ensure Wally+NPM Version Numbers Match
         run: |
@@ -33,14 +30,11 @@ jobs:
             exit 1
           fi
 
-      - name: Setup Toolchain
-        uses: Roblox/setup-foreman@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          version: "^1.0.1"
+      - name: Setup Aftman
+        uses: ok-nick/setup-aftman@v0.3.0
 
       - name: Report Tool Versions
-        run: foreman list
+        run: aftman list
 
       - name: Get Release Details
         shell: bash
@@ -55,11 +49,16 @@ jobs:
         run: wally install
 
       - name: Remove Tests
-        run: |
-          find . -name "*.spec.lua" -delete
+        run: find . -name "*.spec.lua" -delete
 
       - name: Build Project
         run: rojo build default.project.json -o $RELEASE_FILENAME
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ env.RELEASE_FILENAME }}
+          path: ${{ env.RELEASE_FILENAME }}
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1

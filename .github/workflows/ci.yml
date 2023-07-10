@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: Test and Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Aftman
+        uses: ok-nick/setup-aftman@v0.3.0
+
+      - name: Install Packages
+        run: wally install
+
+      - name: Build
+        run: rojo build default.project.json -o test.rbxm
+
+      - name: Set Environment Variables
+        run: |
+          echo "COMMIT_HASH=$(git rev-parse --short ${{github.sha}})" >> $GITHUB_ENV
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{github.event.repository.name}}-${{env.COMMIT_HASH}}.rbxm
+          path: test.rbxm
+
+  lint:
+    name: Format and Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Aftman
+        uses: ok-nick/setup-aftman@v0.3.0
+
+      - name: Format
+        run: stylua --check src/
+
+      - name: Lint
+        run: selene src/

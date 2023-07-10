@@ -8,9 +8,9 @@ local min = math.min
 	@function Dodge
 	@within Blend
 
-	@param background Color3 -- The background colour.
-	@param foreground Color3 -- The foreground colour.
-	@return Color3 -- The resulting colour.
+	@param background Color3 -- The background color.
+	@param foreground Color3 -- The foreground color.
+	@return Color3 -- The resulting color.
 ]=]
 return PrepFilter("Dodge", function(background: number, foreground: number): number
 	local bg = clamp(background * 255, 0, 255)

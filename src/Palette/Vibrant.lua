@@ -1,7 +1,7 @@
-local Types = require(script.Parent.Parent._Util.Types)
-local Assert = require(script.Parent.Parent._Util.Assert)
-local Schema = require(script.Parent.Parent._Util.Schema)
+local Assert = require(script.Parent.Parent.Util.Assert)
 local GetLuminance = require(script.Parent.Parent.GetLuminance)
+local Schema = require(script.Parent.Parent.Util.Schema)
+local Types = require(script.Parent.Parent.Util.Types)
 
 local assertArrayOf = Assert.prepArrayOf("Vibrant")
 
@@ -46,7 +46,7 @@ local DEFAULT_OPTIONS: VibrantOptions = {
 
 	@param swatches {Color3} -- The swatches to select from.
 	@param options? VibrantOptions -- The options to use.
-	@return Color3 -- The "most vibrant" colour.
+	@return Color3 -- The "most vibrant" color.
 ]=]
 return function(swatches: Array<Color3>, options: VibrantOptions?): Color3
 	assertArrayOf("swatches", "Color3", swatches)

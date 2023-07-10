@@ -35,15 +35,8 @@ function Assert.arrayOf(methodName: string, argName: string, class: string, arra
 
 	for index, value in ipairs(array) do
 		if typeof(value) ~= class then
-			local errorText = fmt(
-				Assert.TYPE.INVALID_ARRAY,
-				methodName,
-				argName,
-				class,
-				tostring(value),
-				typeof(value),
-				index
-			)
+			local errorText =
+				fmt(Assert.TYPE.INVALID_ARRAY, methodName, argName, class, tostring(value), typeof(value), index)
 			error(errorText, 3)
 		end
 	end

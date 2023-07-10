@@ -1,5 +1,5 @@
-local Assert = require(script.Parent._Util.Assert)
-local ClampColour = require(script.Parent._Util.ClampColour)
+local Assert = require(script.Parent.Util.Assert)
+local ClampColor = require(script.Parent.Util.ClampColor)
 local Transparency = require(script.Parent.Blend.Transparency)
 
 local sub = string.sub
@@ -10,7 +10,7 @@ local split = string.split
 
 local HEX_EXCLUDE_PATTERN = "[^A-Fa-f0-9]"
 local HEX_FORMAT_PATTERN = "%.2x%.2x%.2x"
-local BACKGROUND_BASE_COLOUR = Color3.new()
+local BACKGROUND_BASE_COLOR = Color3.new()
 
 --[=[
 	@function fromHex
@@ -49,7 +49,7 @@ local function FromHex(hex: string): Color3
 	local green = tonumber(sub(hex, 3, 4), 16)
 	local blue = tonumber(sub(hex, 5, 6), 16)
 
-	return ClampColour(Color3.fromRGB(red, green, blue))
+	return ClampColor(Color3.fromRGB(red, green, blue))
 end
 
 --[=[
@@ -58,7 +58,7 @@ end
 
 	Creates a Color3 from a hex string with an alpha value. The background
 	doesn't need to be specified, but the resulting Color3 will vary
-	depending on the colour of the background, so it's recommended to
+	depending on the color of the background, so it's recommended to
 	specify a background unless `Color3.new()` is what you want.
 
 	If the hex string is less than 8 characters, it will be passed to
@@ -70,7 +70,7 @@ end
 	last two characters will be used as the alpha value.
 
 	@param hex string -- The hex string to convert.
-	@param background Color3? -- The background colour (defaults to black).
+	@param background Color3? -- The background color (defaults to black).
 	@return Color3 -- The resulting Color3.
 ]=]
 local function FromHexRGBA(hex: string, background: Color3?): Color3
@@ -83,9 +83,9 @@ local function FromHexRGBA(hex: string, background: Color3?): Color3
 	end
 
 	local transparency = 1 - (tonumber(sub(hex, -2), 16) / 255)
-	local colour = FromHex(sub(hex, 1, -3))
+	local color = FromHex(sub(hex, 1, -3))
 
-	return Transparency(colour, background or BACKGROUND_BASE_COLOUR, transparency)
+	return Transparency(color, background or BACKGROUND_BASE_COLOR, transparency)
 end
 
 --[=[
@@ -99,15 +99,15 @@ end
 
 	:::
 
-	@param colour Color3 -- The colour to convert.
-	@return string -- The hex representation of the colour.
+	@param color Color3 -- The color to convert.
+	@return string -- The hex representation of the color.
 ]=]
-local function ToHex(colour: Color3): string
-	Assert.typeOf("ToHex", "colour", "Color3", colour)
+local function ToHex(color: Color3): string
+	Assert.typeOf("ToHex", "color", "Color3", color)
 
-	local red = colour.R * 255
-	local green = colour.G * 255
-	local blue = colour.B * 255
+	local red = color.R * 255
+	local green = color.G * 255
+	local blue = color.B * 255
 
 	local hex = fmt(HEX_FORMAT_PATTERN, red, green, blue)
 

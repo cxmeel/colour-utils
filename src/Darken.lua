@@ -1,19 +1,19 @@
-local Assert = require(script.Parent._Util.Assert)
+local Assert = require(script.Parent.Util.Assert)
 local assertTypeOf = Assert.prepTypeOf("Darken")
 
-local clampColour = require(script.Parent._Util.ClampColour)
+local clampColor = require(script.Parent.Util.ClampColor)
 
 --[=[
 	@function Darken
-	@within ColourUtils
+	@within ColorUtils
 
-	@param colour Color3 -- The colour to darken.
+	@param color Color3 -- The color to darken.
 	@param coefficient number -- The amount to darken by [0-1].
-	@return Color3 -- The darkened colour.
+	@return Color3 -- The darkened color.
 ]=]
-return function(colour: Color3, coefficient: number): Color3
-	assertTypeOf("colour", "Color3", colour)
+return function(color: Color3, coefficient: number): Color3
+	assertTypeOf("color", "Color3", color)
 	assertTypeOf("coefficient", "number", coefficient)
 
-	return clampColour(colour:Lerp(Color3.new(), coefficient))
+	return clampColor(color:Lerp(Color3.new(), coefficient))
 end

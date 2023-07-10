@@ -1,4 +1,4 @@
-local Assert = require(script.Parent._Util.Assert)
+local Assert = require(script.Parent.Util.Assert)
 
 local assertTypeOf = Assert.prepTypeOf("GetLuminance")
 
@@ -8,17 +8,17 @@ end
 
 --[=[
 	@function GetLuminance
-	@within ColourUtils
+	@within ColorUtils
 
-	@param colour Color3 -- The colour to get the luminance of.
-	@return number -- The luminance of the colour [0-1].
+	@param color Color3 -- The color to get the luminance of.
+	@return number -- The luminance of the color [0-1].
 ]=]
-return function(colour: Color3): number
-	assertTypeOf("colour", "Color3", colour)
+return function(color: Color3): number
+	assertTypeOf("color", "Color3", color)
 
-	local red = transformValue(colour.R)
-	local green = transformValue(colour.G)
-	local blue = transformValue(colour.B)
+	local red = transformValue(color.R)
+	local green = transformValue(color.G)
+	local blue = transformValue(color.B)
 
 	local lum = 0.2126 * red + 0.7152 * green + 0.0722 * blue
 

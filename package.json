@@ -1,6 +1,6 @@
 {
   "name": "@rbxts/colour-utils",
-  "version": "1.3.1",
+  "version": "1.4.1",
   "description": "Colour manipulation utility for Roblox",
   "homepage": "https://github.com/csqrl/colour-utils",
   "main": "src/init.lua",
@@ -8,7 +8,8 @@
   "scripts": {
     "build": "rbxtsc",
     "watch": "rbxtsc -w",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "prepare": "husky install"
   },
   "types": "typings/index.d.ts",
   "files": [
@@ -33,6 +34,7 @@
     "rbxts-transform-debug": "^1.0.0-rc.1",
     "rbxts-transform-env": "^1.0.0-rc.0",
     "typescript": "^4.3.5",
-    "roblox-ts": "^1.2.7"
+    "roblox-ts": "^1.2.7",
+    "husky": "^8.0.0"
   }
 }

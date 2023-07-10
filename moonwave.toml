@@ -1,8 +1,8 @@
-title = "ColourUtils"
+title = "ColorUtils"
 gitSourceBranch = "default"
 changelog = true
 
-classOrder = ["ColourUtils"]
+classOrder = ["ColorUtils"]
 
 [[navbar.items]]
 label = "Itch.io"

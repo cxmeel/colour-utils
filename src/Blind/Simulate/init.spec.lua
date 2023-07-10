@@ -1,4 +1,4 @@
-local BasicallyIdentical = require(script.Parent.Parent.Parent._Util.BasicallyIdentical)
+local BasicallyIdentical = require(script.Parent.Parent.Parent.Util.BasicallyIdentical)
 local Enums = require(script.Parent.Parent.Enum)
 
 local BLIND_NAMES = {
@@ -16,10 +16,10 @@ local BLIND_NAMES = {
 return function()
 	local Simulate = require(script.Parent)
 
-	local TEST_COLOUR = Color3.fromHex("00a2ff")
+	local TEST_COLOR = Color3.fromHex("00a2ff")
 
-	local EXPECT_COLOURS = {
-		[Enums.Blind.Trichromacy] = TEST_COLOUR,
+	local EXPECT_COLORS = {
+		[Enums.Blind.Trichromacy] = TEST_COLOR,
 		[Enums.Blind.Protanomaly] = Color3.fromHex("499bfa"),
 		[Enums.Blind.Protanopia] = Color3.fromHex("7397f7"),
 		[Enums.Blind.Deuteranomaly] = Color3.fromHex("349eff"),
@@ -37,13 +37,13 @@ return function()
 	end)
 
 	it("returns a Color3", function()
-		local result = Simulate(TEST_COLOUR, Enums.Blind.Trichromacy)
-		expect(BasicallyIdentical(TEST_COLOUR, result)).to.equal(true)
+		local result = Simulate(TEST_COLOR, Enums.Blind.Trichromacy)
+		expect(BasicallyIdentical(TEST_COLOR, result)).to.equal(true)
 	end)
 
-	for blinder, expected in pairs(EXPECT_COLOURS) do
+	for blinder, expected in pairs(EXPECT_COLORS) do
 		it("correctly simulates " .. BLIND_NAMES[blinder]:lower() .. " against expected output", function()
-			local result = Simulate(TEST_COLOUR, blinder)
+			local result = Simulate(TEST_COLOR, blinder)
 			expect(BasicallyIdentical(expected, result)).to.equal(true)
 		end)
 	end

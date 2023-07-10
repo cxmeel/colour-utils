@@ -1,4 +1,4 @@
-local BasicallyIdentical = require(script.Parent._Util.BasicallyIdentical)
+local BasicallyIdentical = require(script.Parent.Util.BasicallyIdentical)
 
 return function()
 	local Desaturate = require(script.Parent.Desaturate)
@@ -7,10 +7,10 @@ return function()
 	local TEST_RESULT = Color3.fromHex("#80d0ff")
 	local TEST_AMOUNT = 0.5
 
-	it("should desaturate a colour", function()
-		local colour = Desaturate(TEST_BASE, TEST_AMOUNT)
+	it("should desaturate a color", function()
+		local color = Desaturate(TEST_BASE, TEST_AMOUNT)
 
-		expect(BasicallyIdentical(TEST_RESULT, colour)).to.equal(true)
+		expect(BasicallyIdentical(TEST_RESULT, color)).to.equal(true)
 	end)
 
 	it("throws if argument is not a Color3", function()

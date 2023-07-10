@@ -1,4 +1,4 @@
-local BasicallyIdentical = require(script.Parent._Util.BasicallyIdentical)
+local BasicallyIdentical = require(script.Parent.Util.BasicallyIdentical)
 
 return function()
 	local Invert = require(script.Parent.Invert)
