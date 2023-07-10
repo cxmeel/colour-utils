@@ -14,7 +14,8 @@ return function()
 		[600] = Color3.fromHex("#0071b2"),
 		[700] = Color3.fromHex("#00507f"),
 		[800] = Color3.fromHex("#00304c"),
-		[900] = Color3.fromHex("#000f19"),
+		[900] = Color3.fromHex("#001f32"),
+		[950] = Color3.fromHex("#000f19"),
 	}
 
 	it("generates a tailwind-like palette", function()

@@ -8,6 +8,8 @@
   palette to a given colour.
 - Implemented `LAB.Lerp` method, which returns a colour between two colours in
   the LAB colour space.
+- Missing TypeScript types for new methods and `Hex.fromHexRGBA`.
+- CI workflow to ensure code is formatted and linted correctly.
 
 ### Fixed
 
@@ -19,6 +21,7 @@
 All deprecated methods will output warnings to the console when used for the
 first time. This is to help users migrate to the new methods.
 
+- This project's toolchain is now managed by aftman. Use of foreman is not recommended.
 - All instances of the word "colour" have been changed to "color" to match the
   US spelling and keep consistency with the Roblox API.
 - `ColorUtils.Emphasise` and `ColorUtils.GetContrastingColour` are now marked as
@@ -31,6 +34,10 @@ first time. This is to help users migrate to the new methods.
   but now it will use `APCA.GetContrastRatio` because it is more accurate. `WCAG`
   values (`0-21`) will be returned for backwards compatibility until the method is
   removed in a future release.
+- `Palette.Tailwind` will now produce a darker 950 shade, in line with
+  [Tailwind v3.3.2](https://tailwindcss.com/docs/customizing-colors). Note that the
+  generated palette will be slightly different to tailwind's, since the algorithm
+  used to generate the palette is different.
 
 ## [1.3.1]
 
